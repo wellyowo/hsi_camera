@@ -1,0 +1,827 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Acquisition, Multithreaded Acquisition and Save &mdash; Arena 0.1.59.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Arena 0.1.59.0 documentation" href="index.html"/>
+        <link rel="up" title="C Code Samples" href="c_examples.html"/>
+        <link rel="next" title="Acquisition, Rapid Acquisition" href="c_examples_acquisition_rapidacquisition.html"/>
+        <link rel="prev" title="Acquisition, Multi-Device Acquisition" href="c_examples_acquisition_multidevice.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home">
+          
+
+          <!--
+            
+            <img src="_static/lucid-white.png" class="logo" />
+          -->
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.59
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact_us.html">Contact Us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started_sdk_datasheet.html">Arena SDK Datasheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arena_sdk_windows.html">Arena SDK for Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arena_sdk_linux.html">Arena SDK for Linux</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="sdk.html">Code Reference &amp; Samples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="gentl.html">GenTL Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp.html">Arena C++</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="c.html">Arena C</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="c_arena.html">Arena C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="c_save.html">Save C</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="c_examples.html">C Code Samples</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="c_examples_simpleacquisition.html">Simple Acquisition, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_acquisition.html">Acquisition, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_acquisition_multidevice.html">Acquisition, Multi-Device Acquisition</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Acquisition, Multithreaded Acquisition and Save</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_acquisition_rapidacquisition.html">Acquisition, Rapid Acquisition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_acquisition_sensorbinning.html">Acquisition, Sensor Binning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_callback_imagecallbacks.html">Callback, Image Callbacks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_callback_multithreadedimagecallbacks.html">Callback, Multithreaded Image Callbacks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_callback_onevent.html">Callback, On Event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_callback_onnodechange.html">Callback, On Node Change</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_callback_polling.html">Callback, Polling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_chunkdata.html">Chunk Data, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_chunkdata_crcvalidation.html">Chunk Data, CRC Validation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_enumeration.html">Enumeration, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_enumeration_handlingdisconnections.html">Enumeration, Handling Disconnections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_explore_nodemaps.html">Explore, Node Maps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_exposure.html">Exposure, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_exposure_long.html">Exposure, Long</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_explore_nodes.html">Explore, Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_explore_nodetypes.html">Explore, Node Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_forceip.html">Force IP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_helios_heatmap.html">Helios, HeatMap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_helios_minmaxdepth.html">Helios, Min Max Depth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_helios_smoothresults.html">Helios, Smooth Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_ipconfig_manual.html">IP Config, Manual</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_ipconfig_auto.html">IP Config, Auto</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_lut.html">LUT, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_multicast.html">Multicast, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_pixelcorrection.html">Pixel Correction, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_polarization_colordolpaolp.html">Polarization, Color DoLP AoLP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_polarization_dolpaolp.html">Polarization, DoLP AoLP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_record.html">Record, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_save.html">Save, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_save_filenamepattern.html">Save, File Name Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_save_ply.html">Save, Ply</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_scheduledactioncommands.html">Scheduled Action Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_sequencer_hdr.html">Sequencer, HDR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_streamables.html">Streamables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_trigger.html">Trigger, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_trigger_nextleader.html">Trigger, Next Leader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_trigger_overlappingtrigger.html">Trigger, Overlapping Trigger</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_examples_usersets.html">User Sets, Introduction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html">Qt</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Arena</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="sdk.html">Code Reference &amp; Samples</a> &raquo;</li>
+        
+          <li><a href="c.html">Arena C</a> &raquo;</li>
+        
+          <li><a href="c_examples.html">C Code Samples</a> &raquo;</li>
+        
+      <li>Acquisition, Multithreaded Acquisition and Save</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="acquisition-multithreaded-acquisition-and-save">
+<h1>Acquisition, Multithreaded Acquisition and Save<a class="headerlink" href="#acquisition-multithreaded-acquisition-and-save" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/***************************************************************************************</span>
+<span class="cm"> ***                                                                                 ***</span>
+<span class="cm"> ***  Copyright (c) 2021, Lucid Vision Labs, Inc.                                    ***</span>
+<span class="cm"> ***                                                                                 ***</span>
+<span class="cm"> ***  THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR     ***</span>
+<span class="cm"> ***  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,       ***</span>
+<span class="cm"> ***  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE    ***</span>
+<span class="cm"> ***  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER         ***</span>
+<span class="cm"> ***  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  ***</span>
+<span class="cm"> ***  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE  ***</span>
+<span class="cm"> ***  SOFTWARE.                                                                      ***</span>
+<span class="cm"> ***                                                                                 ***</span>
+<span class="cm"> ***************************************************************************************/</span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;stdafx.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;ArenaCApi.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;SaveCApi.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;inttypes.h&gt; // defines macros for printf functions</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;  // defines boolean type and values</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+
+
+<span class="c1">// Multithreading is implemented differently for Windows and Linux</span>
+<span class="c1">// systems, so headers, functions and macros are defined according to the</span>
+<span class="c1">// operating system being used.</span>
+<span class="cp">#ifdef _WIN32</span>
+<span class="cp">#include</span> <span class="cpf">&quot;ArenaCThreadWindows.h&quot;</span><span class="cp"></span>
+<span class="cp">#elif defined linux</span>
+<span class="cp">#include</span> <span class="cpf">&quot;ArenaCThreadLinux.h&quot;</span><span class="cp"></span>
+<span class="cp">#endif</span>
+
+<span class="cp">#define TAB1 &quot;  &quot;</span>
+<span class="cp">#define TAB2 &quot;    &quot;</span>
+
+<span class="c1">// Acquiring and Saving Images on Seperate Threads: Introduction</span>
+<span class="c1">//    Saving images can sometimes create a bottleneck in the image</span>
+<span class="c1">//    acquisition pipeline. By sperating saving onto a separate thread,</span>
+<span class="c1">//    this bottle neck can be avoided.</span>
+<span class="c1">//    This example is programmed as a simple producer-consumer problem.</span>
+
+
+<span class="c1">// =-=-=-=-=-=-=-=-=-</span>
+<span class="c1">// =-=- SETTINGS =-=-</span>
+<span class="c1">// =-=-=-=-=-=-=-=-=-</span>
+
+<span class="c1">// Image timeout in milliseconds</span>
+<span class="cp">#define IMAGE_TIMEOUT 5000</span>
+
+<span class="c1">// number of images to grab</span>
+<span class="cp">#define NUM_IMAGES 25</span>
+
+<span class="c1">// maximum buffer length</span>
+<span class="cp">#define MAX_BUF 512</span>
+
+<span class="c1">// file name</span>
+<span class="cp">#define FILE_NAME &quot;Images/C_Acquisition_MultithreadedAcquisitionAndSave/image&quot;</span>
+<span class="cp">#define FILE_TYPE &quot;.png&quot;</span>
+
+<span class="c1">// pixel format</span>
+<span class="cp">#define PIXEL_FORMAT PFNC_BGR8 </span><span class="c1">// BGR8</span>
+
+<span class="kt">bool</span> <span class="n">isCompleted</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+
+<span class="c1">// queue implementation</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">node</span> <span class="p">{</span>
+        <span class="n">acBuffer</span> <span class="n">val</span><span class="p">;</span>
+        <span class="k">struct</span> <span class="n">node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">node_t</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">enqueue</span><span class="p">(</span><span class="n">node_t</span> <span class="o">**</span><span class="n">head</span><span class="p">,</span> <span class="n">acBuffer</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">node_t</span> <span class="o">*</span><span class="n">new_node</span> <span class="o">=</span> <span class="p">(</span><span class="n">node_t</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">node_t</span><span class="p">));</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">new_node</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+
+        <span class="n">new_node</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span><span class="p">;</span>
+        <span class="n">new_node</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="o">*</span><span class="n">head</span><span class="p">;</span>
+        <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="n">new_node</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">acBuffer</span> <span class="nf">dequeue</span><span class="p">(</span><span class="n">node_t</span> <span class="o">**</span><span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">node_t</span> <span class="o">*</span><span class="n">current</span><span class="p">,</span> <span class="o">*</span><span class="n">prev</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="n">acBuffer</span> <span class="n">retval</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">head</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+
+        <span class="n">current</span> <span class="o">=</span> <span class="o">*</span><span class="n">head</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">prev</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+                <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">retval</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">prev</span><span class="p">)</span>
+                <span class="n">prev</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="k">else</span>
+                <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="n">retval</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="nf">isEmpty</span><span class="p">(</span><span class="n">node_t</span> <span class="o">**</span><span class="n">head</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="o">*</span><span class="n">head</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">node_t</span> <span class="o">*</span><span class="n">head</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+<span class="n">THREAD_LOCK_VARIABLE</span><span class="p">(</span><span class="n">lock</span><span class="p">);</span>
+<span class="n">THREAD_CONDITION_VARIABLE</span><span class="p">(</span><span class="n">cv</span><span class="p">);</span>
+
+<span class="c1">// =-=-=-=-=-=-=-=-=-</span>
+<span class="c1">// =-=- HELPERS =-=-=-</span>
+<span class="c1">// =-=-=-=-=-=-=-=-=-</span>
+
+<span class="n">AC_ERROR</span> <span class="nf">exitThreads</span><span class="p">(</span><span class="n">AC_ERROR</span> <span class="n">err</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">acThreadConditionVariableWake</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cv</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">err</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">SC_ERROR</span> <span class="nf">exitSCThreads</span><span class="p">(</span><span class="n">SC_ERROR</span> <span class="n">err</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">acThreadConditionVariableWake</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cv</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">err</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// gets node value</span>
+<span class="c1">// (1) gets node</span>
+<span class="c1">// (2) check access mode</span>
+<span class="c1">// (3) get value</span>
+<span class="n">AC_ERROR</span> <span class="nf">GetNodeValue</span><span class="p">(</span><span class="n">acNodeMap</span> <span class="n">hNodeMap</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">nodeName</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">pValue</span><span class="p">,</span> <span class="kt">size_t</span><span class="o">*</span> <span class="n">pLen</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">AC_ERROR</span> <span class="n">err</span> <span class="o">=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">;</span>
+
+        <span class="c1">// get node</span>
+        <span class="n">acNode</span> <span class="n">hNode</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="n">AC_ACCESS_MODE</span> <span class="n">accessMode</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="n">err</span> <span class="o">=</span> <span class="n">acNodeMapGetNodeAndAccessMode</span><span class="p">(</span><span class="n">hNodeMap</span><span class="p">,</span> <span class="n">nodeName</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">hNode</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">accessMode</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">err</span><span class="p">;</span>
+
+        <span class="c1">// check access mode</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">accessMode</span> <span class="o">!=</span> <span class="n">AC_ACCESS_MODE_RO</span> <span class="o">&amp;&amp;</span> <span class="n">accessMode</span> <span class="o">!=</span> <span class="n">AC_ACCESS_MODE_RW</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">AC_ERR_ERROR</span><span class="p">;</span>
+
+        <span class="c1">// get value</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">acValueToString</span><span class="p">(</span><span class="n">hNode</span><span class="p">,</span> <span class="n">pValue</span><span class="p">,</span> <span class="n">pLen</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">err</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// sets node value</span>
+<span class="c1">// (1) gets node</span>
+<span class="c1">// (2) check access mode</span>
+<span class="c1">// (3) gets value</span>
+<span class="n">AC_ERROR</span> <span class="nf">SetNodeValue</span><span class="p">(</span><span class="n">acNodeMap</span> <span class="n">hNodeMap</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">nodeName</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">pValue</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">AC_ERROR</span> <span class="n">err</span> <span class="o">=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">;</span>
+
+        <span class="c1">// get node</span>
+        <span class="n">acNode</span> <span class="n">hNode</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="n">AC_ACCESS_MODE</span> <span class="n">accessMode</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="n">err</span> <span class="o">=</span> <span class="n">acNodeMapGetNodeAndAccessMode</span><span class="p">(</span><span class="n">hNodeMap</span><span class="p">,</span> <span class="n">nodeName</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">hNode</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">accessMode</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">err</span><span class="p">;</span>
+
+        <span class="c1">// check access mode</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">accessMode</span> <span class="o">!=</span> <span class="n">AC_ACCESS_MODE_WO</span> <span class="o">&amp;&amp;</span> <span class="n">accessMode</span> <span class="o">!=</span> <span class="n">AC_ACCESS_MODE_RW</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">AC_ERR_ERROR</span><span class="p">;</span>
+
+        <span class="c1">// get value</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">acValueFromString</span><span class="p">(</span><span class="n">hNode</span><span class="p">,</span> <span class="n">pValue</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">err</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// =-=-=-=-=-=-=-=-=-</span>
+<span class="c1">// =-=- EXAMPLE -=-=-</span>
+<span class="c1">// =-=-=-=-=-=-=-=-=-</span>
+
+<span class="c1">// demonstration: Acquire Images (Producer)</span>
+<span class="c1">// (1) Call the main thread on Acquire Images (producer)</span>
+<span class="c1">// (2) Lock the thread when it reaches the critical section, push image in the queue</span>
+<span class="c1">// (3) Unlock the thread, and notify the consumer</span>
+<span class="c1">// (4) Repeat for the number of images</span>
+<span class="n">THREAD_FUNCTION_SIGNATURE</span><span class="p">(</span><span class="n">AcquireImages</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">AC_ERROR</span> <span class="n">err</span> <span class="o">=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">;</span>
+        <span class="n">acDevice</span> <span class="n">hDevice</span> <span class="o">=</span> <span class="p">(</span><span class="n">acDevice</span><span class="o">*</span><span class="p">)</span><span class="n">lpParam</span><span class="p">;</span>
+
+        <span class="c1">// get node map</span>
+        <span class="n">acNodeMap</span> <span class="n">hNodeMap</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+        <span class="n">err</span> <span class="o">=</span> <span class="n">acDeviceGetNodeMap</span><span class="p">(</span><span class="n">hDevice</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">hNodeMap</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                <span class="n">exitThreads</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
+
+        <span class="c1">// get node values that will be changed in order to return their values at</span>
+        <span class="c1">// the end of the example</span>
+        <span class="kt">char</span> <span class="n">pAcquisitionModeInitial</span><span class="p">[</span><span class="n">MAX_BUF</span><span class="p">];</span>
+        <span class="kt">size_t</span> <span class="n">len</span> <span class="o">=</span> <span class="n">MAX_BUF</span><span class="p">;</span>
+
+        <span class="n">err</span> <span class="o">=</span> <span class="n">GetNodeValue</span><span class="p">(</span><span class="n">hNodeMap</span><span class="p">,</span> <span class="s">&quot;AcquisitionMode&quot;</span><span class="p">,</span> <span class="n">pAcquisitionModeInitial</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">len</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                <span class="n">exitThreads</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
+
+        <span class="c1">// set acquisiton mode to continuous</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">SetNodeValue</span><span class="p">(</span>
+                <span class="n">hNodeMap</span><span class="p">,</span>
+                <span class="s">&quot;AcquisitionMode&quot;</span><span class="p">,</span>
+                <span class="s">&quot;Continuous&quot;</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                <span class="n">exitThreads</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
+
+        <span class="c1">// get stream node map</span>
+        <span class="n">acNodeMap</span> <span class="n">hTLStreamNodeMap</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">acDeviceGetTLStreamNodeMap</span><span class="p">(</span><span class="n">hDevice</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">hTLStreamNodeMap</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                <span class="n">exitThreads</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
+
+        <span class="c1">// set buffer handling mode</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">SetNodeValue</span><span class="p">(</span>
+                <span class="n">hTLStreamNodeMap</span><span class="p">,</span>
+                <span class="s">&quot;StreamBufferHandlingMode&quot;</span><span class="p">,</span>
+                <span class="s">&quot;NewestOnly&quot;</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                <span class="n">exitThreads</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
+
+        <span class="c1">// enable stream auto negotiate packet size</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">acNodeMapSetBooleanValue</span><span class="p">(</span><span class="n">hTLStreamNodeMap</span><span class="p">,</span> <span class="s">&quot;StreamAutoNegotiatePacketSize&quot;</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                <span class="n">exitThreads</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
+
+        <span class="c1">// enable stream packet resend</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">acNodeMapSetBooleanValue</span><span class="p">(</span><span class="n">hTLStreamNodeMap</span><span class="p">,</span> <span class="s">&quot;StreamPacketResendEnable&quot;</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                <span class="n">exitThreads</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
+
+        <span class="c1">// start stream</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">%sStart stream&quot;</span><span class="p">,</span> <span class="n">TAB1</span><span class="p">);</span>
+
+        <span class="n">err</span> <span class="o">=</span> <span class="n">acDeviceStartStream</span><span class="p">(</span><span class="n">hDevice</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                <span class="n">exitThreads</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
+
+        <span class="c1">// get images</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">%sGetting %d images&quot;</span><span class="p">,</span> <span class="n">TAB2</span><span class="p">,</span> <span class="n">NUM_IMAGES</span><span class="p">);</span>
+
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">NUM_IMAGES</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="c1">// get image</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">%sGet image %d&quot;</span><span class="p">,</span> <span class="n">TAB1</span> <span class="n">TAB2</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+                <span class="n">acBuffer</span> <span class="n">hBuffer</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+                <span class="n">err</span> <span class="o">=</span> <span class="n">acDeviceGetBuffer</span><span class="p">(</span><span class="n">hDevice</span><span class="p">,</span> <span class="n">IMAGE_TIMEOUT</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">hBuffer</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                        <span class="n">exitThreads</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
+
+                <span class="c1">// program threads do not have access to the device, thus copying the acquired images</span>
+                <span class="c1">// and pushing them into the queue is required</span>
+                <span class="n">acBuffer</span> <span class="n">hCopyBuffer</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+                <span class="n">err</span> <span class="o">=</span> <span class="n">acImageFactoryCopy</span><span class="p">(</span><span class="n">hBuffer</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">hCopyBuffer</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                        <span class="n">exitThreads</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
+
+                <span class="c1">// critical section</span>
+                <span class="p">{</span>
+                        <span class="c1">// lock the thread</span>
+                        <span class="n">acThreadLock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+
+                        <span class="c1">// push to the shared queue</span>
+                        <span class="n">enqueue</span><span class="p">(</span><span class="o">&amp;</span><span class="n">head</span><span class="p">,</span> <span class="n">hCopyBuffer</span><span class="p">);</span>
+
+                        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">NUM_IMAGES</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="n">isCompleted</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+                        <span class="p">}</span>
+
+                        <span class="c1">// unlock the thread as soon as the work with shared variable is completed</span>
+                        <span class="n">acThreadUnlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="c1">// notify SaveImage (consumer)</span>
+                <span class="n">acThreadConditionVariableWake</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cv</span><span class="p">);</span>
+
+                <span class="c1">// requeue image buffer</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">%sRequeue Buffer&quot;</span><span class="p">,</span> <span class="n">TAB1</span> <span class="n">TAB2</span><span class="p">);</span>
+
+                <span class="n">err</span> <span class="o">=</span> <span class="n">acDeviceRequeueBuffer</span><span class="p">(</span><span class="n">hDevice</span><span class="p">,</span> <span class="n">hBuffer</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                        <span class="n">exitThreads</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">// Stop stream</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">%sStop stream&quot;</span><span class="p">,</span> <span class="n">TAB1</span><span class="p">);</span>
+
+        <span class="n">err</span> <span class="o">=</span> <span class="n">acDeviceStopStream</span><span class="p">(</span><span class="n">hDevice</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                <span class="n">exitThreads</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
+
+        <span class="c1">// return nodes to their initial values</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">SetNodeValue</span><span class="p">(</span>
+                <span class="n">hNodeMap</span><span class="p">,</span>
+                <span class="s">&quot;AcquisitionMode&quot;</span><span class="p">,</span>
+                <span class="n">pAcquisitionModeInitial</span><span class="p">);</span>
+
+        <span class="n">THREAD_RETURN</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="c1">// demonstration: Save Images (Consumer)</span>
+<span class="c1">// (1) Wait for the signal from producer, and lock the thread</span>
+<span class="c1">// (2) Once the lock is acquired and if the queue is not empty, dequeue the image</span>
+<span class="c1">// (3) Once dequeued, unlock the thread</span>
+<span class="c1">// (4) Save the image outside the critical section</span>
+<span class="c1">// (5) Repeat for the number of images</span>
+<span class="n">THREAD_FUNCTION_SIGNATURE</span><span class="p">(</span><span class="n">SaveImage</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="c1">// AC_ERROR and SC_ERROR values are equivalent</span>
+        <span class="n">AC_ERROR</span> <span class="n">acErr</span> <span class="o">=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">;</span>
+        <span class="n">SC_ERROR</span> <span class="n">saveErr</span> <span class="o">=</span> <span class="n">SC_ERR_SUCCESS</span><span class="p">;</span>
+
+        <span class="kt">bool</span> <span class="n">isComplete</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">acBuffer</span> <span class="n">hCopyBuffer</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+                <span class="c1">// if the queue is empty, wait for acquire images (producer) to notify</span>
+                <span class="n">acThreadLock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">isEmpty</span><span class="p">(</span><span class="o">&amp;</span><span class="n">head</span><span class="p">))</span>
+                <span class="p">{</span>
+                        <span class="n">acThreadConditionVariableSleep</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cv</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="n">acThreadUnlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+
+                <span class="c1">// critical section</span>
+                <span class="p">{</span>
+                        <span class="c1">// lock the thread</span>
+                        <span class="n">acThreadLock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+
+                        <span class="c1">//// if queue is not empty, dequeue</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">isEmpty</span><span class="p">(</span><span class="o">&amp;</span><span class="n">head</span><span class="p">))</span>
+                        <span class="p">{</span>
+                                <span class="c1">// dequeue from the shared queue</span>
+                                <span class="n">hCopyBuffer</span> <span class="o">=</span> <span class="n">dequeue</span><span class="p">(</span><span class="o">&amp;</span><span class="n">head</span><span class="p">);</span>
+
+                        <span class="p">}</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">isEmpty</span><span class="p">(</span><span class="o">&amp;</span><span class="n">head</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">isCompleted</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="n">isComplete</span> <span class="o">=</span> <span class="n">isCompleted</span><span class="p">;</span>
+                        <span class="p">}</span>
+
+                        <span class="c1">// unlock the thread as soon as the work with shared variable is completed</span>
+                        <span class="n">acThreadUnlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+                <span class="p">}</span>
+
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">%sConvert image %d to %s&quot;</span><span class="p">,</span> <span class="n">TAB2</span> <span class="n">TAB2</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">PIXEL_FORMAT</span> <span class="o">==</span> <span class="n">PFNC_BGR8</span> <span class="o">?</span> <span class="s">&quot;BGR8&quot;</span> <span class="o">:</span> <span class="s">&quot;RGB8&quot;</span><span class="p">));</span>
+                <span class="n">acBuffer</span> <span class="n">hConverted</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+                <span class="n">acErr</span> <span class="o">=</span> <span class="n">acImageFactoryConvert</span><span class="p">(</span><span class="n">hCopyBuffer</span><span class="p">,</span> <span class="n">PIXEL_FORMAT</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">hConverted</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">acErr</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                        <span class="n">exitThreads</span><span class="p">(</span><span class="n">acErr</span><span class="p">);</span>
+
+                <span class="c1">// prepare image parameters</span>
+
+                <span class="c1">// get width</span>
+                <span class="kt">size_t</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+                <span class="n">acErr</span> <span class="o">=</span> <span class="n">acImageGetWidth</span><span class="p">(</span><span class="n">hConverted</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">width</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">acErr</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                        <span class="n">exitThreads</span><span class="p">(</span><span class="n">acErr</span><span class="p">);</span>
+
+                <span class="c1">// get height</span>
+                <span class="kt">size_t</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+                <span class="n">acErr</span> <span class="o">=</span> <span class="n">acImageGetHeight</span><span class="p">(</span><span class="n">hConverted</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">height</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">acErr</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                        <span class="n">exitThreads</span><span class="p">(</span><span class="n">acErr</span><span class="p">);</span>
+
+                <span class="c1">// get bits per pixel</span>
+                <span class="kt">size_t</span> <span class="n">bpp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+                <span class="n">acErr</span> <span class="o">=</span> <span class="n">acImageGetBitsPerPixel</span><span class="p">(</span><span class="n">hConverted</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">bpp</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">acErr</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                        <span class="n">exitThreads</span><span class="p">(</span><span class="n">acErr</span><span class="p">);</span>
+
+                <span class="c1">// Prepare image writer</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">%sPrepare image %d writer&quot;</span><span class="p">,</span> <span class="n">TAB2</span> <span class="n">TAB2</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+                <span class="n">saveWriter</span> <span class="n">hWriter</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+                <span class="n">saveErr</span> <span class="o">=</span> <span class="n">saveWriterCreate</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">bpp</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">hWriter</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">saveErr</span> <span class="o">!=</span> <span class="n">SC_ERR_SUCCESS</span><span class="p">)</span>
+                        <span class="n">exitSCThreads</span><span class="p">(</span><span class="n">saveErr</span><span class="p">);</span>
+
+                <span class="c1">// creating the filename</span>
+                <span class="kt">char</span> <span class="n">filename</span><span class="p">[</span><span class="n">MAX_BUF</span><span class="p">];</span>
+                <span class="n">snprintf</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">MAX_BUF</span><span class="p">,</span> <span class="n">FILE_NAME</span> <span class="s">&quot;%d&quot;</span> <span class="n">FILE_TYPE</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+
+                <span class="n">saveErr</span> <span class="o">=</span> <span class="n">saveWriterSetFileNamePattern</span><span class="p">(</span><span class="n">hWriter</span><span class="p">,</span> <span class="n">filename</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">saveErr</span> <span class="o">!=</span> <span class="n">SC_ERR_SUCCESS</span><span class="p">)</span>
+                        <span class="n">exitSCThreads</span><span class="p">(</span><span class="n">saveErr</span><span class="p">);</span>
+
+                <span class="c1">// get image</span>
+                <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">pData</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+                <span class="n">acErr</span> <span class="o">=</span> <span class="n">acImageGetData</span><span class="p">(</span><span class="n">hConverted</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pData</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">acErr</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                        <span class="n">exitThreads</span><span class="p">(</span><span class="n">acErr</span><span class="p">);</span>
+
+                <span class="c1">// save image</span>
+                <span class="n">saveErr</span> <span class="o">=</span> <span class="n">saveWriterSave</span><span class="p">(</span><span class="n">hWriter</span><span class="p">,</span> <span class="n">pData</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">saveErr</span> <span class="o">!=</span> <span class="n">SC_ERR_SUCCESS</span><span class="p">)</span>
+                        <span class="n">exitSCThreads</span><span class="p">(</span><span class="n">saveErr</span><span class="p">);</span>
+
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">%sSaved image %d&quot;</span><span class="p">,</span> <span class="n">TAB1</span> <span class="n">TAB2</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+
+                <span class="c1">// destroy image writer</span>
+                <span class="n">saveErr</span> <span class="o">=</span> <span class="n">saveWriterDestroy</span><span class="p">(</span><span class="n">hWriter</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">saveErr</span> <span class="o">!=</span> <span class="n">SC_ERR_SUCCESS</span><span class="p">)</span>
+                        <span class="n">exitSCThreads</span><span class="p">(</span><span class="n">saveErr</span><span class="p">);</span>
+
+                <span class="c1">// destroy converted image</span>
+                <span class="n">acErr</span> <span class="o">=</span> <span class="n">acImageFactoryDestroy</span><span class="p">(</span><span class="n">hCopyBuffer</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">acErr</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                        <span class="n">exitThreads</span><span class="p">(</span><span class="n">acErr</span><span class="p">);</span>
+
+                <span class="n">acErr</span> <span class="o">=</span> <span class="n">acImageFactoryDestroy</span><span class="p">(</span><span class="n">hConverted</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">acErr</span> <span class="o">!=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">)</span>
+                        <span class="n">exitThreads</span><span class="p">(</span><span class="n">acErr</span><span class="p">);</span>
+
+                <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="n">isComplete</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="k">break</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">THREAD_RETURN</span><span class="p">(</span><span class="n">saveErr</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">AC_ERROR</span> <span class="n">Threads</span><span class="p">(</span><span class="n">acDevice</span> <span class="n">hDevice</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">AC_ERROR</span> <span class="n">err</span> <span class="o">=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">;</span>
+
+        <span class="c1">// initializing the lock and condition variable</span>
+        <span class="n">acThreadLockInitialize</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+        <span class="n">acThreadConditionVariableInitialize</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cv</span><span class="p">);</span>
+
+        <span class="c1">// declaring the threads</span>
+        <span class="n">THREAD_ID</span><span class="p">(</span><span class="n">hAcquireThread</span><span class="p">);</span>
+        <span class="n">THREAD_ID</span><span class="p">(</span><span class="n">hSaveThread</span><span class="p">);</span>
+
+        <span class="c1">// creating the threads</span>
+        <span class="n">acThreadCreate</span><span class="p">(</span><span class="n">AcquireImages</span><span class="p">,</span> <span class="n">hDevice</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">hAcquireThread</span><span class="p">);</span>
+        <span class="n">acThreadCreate</span><span class="p">(</span><span class="n">SaveImage</span><span class="p">,</span> <span class="n">hDevice</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">hSaveThread</span><span class="p">);</span>
+
+        <span class="c1">// destroying the threads in the order they were created</span>
+        <span class="n">acThreadDestroy</span><span class="p">(</span><span class="n">hAcquireThread</span><span class="p">);</span>
+        <span class="n">acThreadDestroy</span><span class="p">(</span><span class="n">hSaveThread</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">err</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// =-=-=-=-=-=-=-=-=-</span>
+<span class="c1">// =- PREPARATION -=-</span>
+<span class="c1">// =- &amp; CLEAN UP =-=-</span>
+<span class="c1">// =-=-=-=-=-=-=-=-=-</span>
+
+<span class="c1">// error buffer length</span>
+<span class="cp">#define ERR_BUF 512</span>
+
+<span class="cp">#define CHECK_RETURN                                  \</span>
+<span class="cp">        if (err != AC_ERR_SUCCESS)                        \</span>
+<span class="cp">        {                                                 \</span>
+<span class="cp">                char pMessageBuf[ERR_BUF];                    \</span>
+<span class="cp">                size_t pBufLen = ERR_BUF;                     \</span>
+<span class="cp">                acGetLastErrorMessage(pMessageBuf, &amp;pBufLen); \</span>
+<span class="cp">                printf(&quot;\nError: %s&quot;, pMessageBuf);           \</span>
+<span class="cp">                printf(&quot;\n\nPress enter to complete\n&quot;);      \</span>
+<span class="cp">                getchar();                                    \</span>
+<span class="cp">                return -1;                                    \</span>
+<span class="cp">        }</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;C_Acquisition_MultithreadedAcquisitionAndSave</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">AC_ERROR</span> <span class="n">err</span> <span class="o">=</span> <span class="n">AC_ERR_SUCCESS</span><span class="p">;</span>
+
+        <span class="c1">// prepare example</span>
+        <span class="n">acSystem</span> <span class="n">hSystem</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">acOpenSystem</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hSystem</span><span class="p">);</span>
+        <span class="n">CHECK_RETURN</span><span class="p">;</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">acSystemUpdateDevices</span><span class="p">(</span><span class="n">hSystem</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+        <span class="n">CHECK_RETURN</span><span class="p">;</span>
+        <span class="kt">size_t</span> <span class="n">numDevices</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">acSystemGetNumDevices</span><span class="p">(</span><span class="n">hSystem</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">numDevices</span><span class="p">);</span>
+        <span class="n">CHECK_RETURN</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">numDevices</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">No camera connected</span><span class="se">\n</span><span class="s">Press enter to complete</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+                <span class="n">getchar</span><span class="p">();</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">acDevice</span> <span class="n">hDevice</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">acSystemCreateDevice</span><span class="p">(</span><span class="n">hSystem</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">hDevice</span><span class="p">);</span>
+        <span class="n">CHECK_RETURN</span><span class="p">;</span>
+
+        <span class="c1">// run example</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Commence example</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">Threads</span><span class="p">(</span><span class="n">hDevice</span><span class="p">);</span>
+        <span class="n">CHECK_RETURN</span><span class="p">;</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Example complete</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+        <span class="c1">// clean up example</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">acSystemDestroyDevice</span><span class="p">(</span><span class="n">hSystem</span><span class="p">,</span> <span class="n">hDevice</span><span class="p">);</span>
+        <span class="n">CHECK_RETURN</span><span class="p">;</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">acCloseSystem</span><span class="p">(</span><span class="n">hSystem</span><span class="p">);</span>
+        <span class="n">CHECK_RETURN</span><span class="p">;</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Press enter to complete</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">getchar</span><span class="p">();</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="c_examples_acquisition_rapidacquisition.html" class="btn btn-neutral float-right" title="Acquisition, Rapid Acquisition" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="c_examples_acquisition_multidevice.html" class="btn btn-neutral" title="Acquisition, Multi-Device Acquisition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Lucid Vision Labs, Inc.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.59.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

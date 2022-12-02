@@ -1,0 +1,490 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Qt Feature Tree, NodeTreeData.h &mdash; Arena 0.1.59.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Arena 0.1.59.0 documentation" href="index.html"/>
+        <link rel="up" title="Qt Feature Tree" href="qt_cpp_examples_featuretree.html"/>
+        <link rel="next" title="Qt Feature Tree, NodeTreeItem.h" href="qt_examples_featuretree_nodetreeitem.html"/>
+        <link rel="prev" title="Qt Feature Tree, main.cpp" href="qt_examples_featuretree_main.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home">
+          
+
+          <!--
+            
+            <img src="_static/lucid-white.png" class="logo" />
+          -->
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.59
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact_us.html">Contact Us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started_sdk_datasheet.html">Arena SDK Datasheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arena_sdk_windows.html">Arena SDK for Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arena_sdk_linux.html">Arena SDK for Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdk.html">Code Reference &amp; Samples</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Arena</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="sdk.html">Code Reference &amp; Samples</a> &raquo;</li>
+        
+          <li><a href="qt.html">Qt</a> &raquo;</li>
+        
+          <li><a href="qt_cpp_examples.html">Qt C++ Examples</a> &raquo;</li>
+        
+          <li><a href="qt_cpp_examples_featuretree.html">Qt Feature Tree</a> &raquo;</li>
+        
+      <li>Qt Feature Tree, NodeTreeData.h</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="qt-feature-tree-nodetreedata-h">
+<h1>Qt Feature Tree, NodeTreeData.h<a class="headerlink" href="#qt-feature-tree-nodetreedata-h" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/**************************************************************************************</span>
+<span class="cm">***                                                                                 ***</span>
+<span class="cm">***  Copyright (c) 2021, Lucid Vision Labs, Inc.                                    ***</span>
+<span class="cm">***                                                                                 ***</span>
+<span class="cm">***  THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR     ***</span>
+<span class="cm">***  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,       ***</span>
+<span class="cm">***  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE    ***</span>
+<span class="cm">***  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER         ***</span>
+<span class="cm">***  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  ***</span>
+<span class="cm">***  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE  ***</span>
+<span class="cm">***  SOFTWARE.                                                                      ***</span>
+<span class="cm">***                                                                                 ***</span>
+<span class="cm">***************************************************************************************/</span>
+
+<span class="cm">/**************************************************************************************</span>
+<span class="cm">***                                                                                 ***</span>
+<span class="cm">***               This example requires Qt library installed                        ***</span>
+<span class="cm">***                                                                                 ***</span>
+<span class="cm">***       For more information see &quot;Qt_README.txt&quot; in cpp source examples folder    ***</span>
+<span class="cm">***                                                                                 ***</span>
+<span class="cm">***                             default path:                                       ***</span>
+<span class="cm">***      C:\ProgramData\Lucid Vision Labs\Examples\src\C++ Source Code Examples     ***</span>
+<span class="cm">***                                                                                 ***</span>
+<span class="cm">***************************************************************************************/</span>
+
+
+<span class="cp">#pragma once</span>
+<span class="cp">#include</span> <span class="cpf">&lt;QtWidgets&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;ArenaApi.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;SaveApi.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;NodeTreeItem.h&quot;</span><span class="cp"></span>
+
+<span class="k">class</span> <span class="nc">NodeTreeData</span> <span class="o">:</span> <span class="k">public</span> <span class="n">QStyledItemDelegate</span>
+<span class="p">{</span>
+
+<span class="k">public</span><span class="o">:</span>
+        <span class="n">NodeTreeData</span><span class="p">(</span><span class="n">QWidget</span><span class="o">*</span> <span class="n">pParent</span><span class="p">)</span> <span class="o">:</span>
+                <span class="n">QStyledItemDelegate</span><span class="p">(</span><span class="n">pParent</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="p">}</span>
+
+        <span class="o">~</span><span class="n">NodeTreeData</span><span class="p">()</span>
+        <span class="p">{</span>
+        <span class="p">}</span>
+
+        <span class="c1">// create editor</span>
+        <span class="n">QWidget</span><span class="o">*</span> <span class="n">createEditor</span><span class="p">(</span><span class="n">QWidget</span><span class="o">*</span> <span class="n">pParent</span><span class="p">,</span> <span class="k">const</span> <span class="n">QStyleOptionViewItem</span><span class="o">&amp;</span> <span class="n">option</span><span class="p">,</span> <span class="k">const</span> <span class="n">QModelIndex</span><span class="o">&amp;</span> <span class="n">index</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span>
+        <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">index</span><span class="p">.</span><span class="n">isValid</span><span class="p">())</span>
+                <span class="p">{</span>
+                        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+                <span class="p">}</span>
+
+                <span class="c1">// get node type</span>
+                <span class="n">NodeTreeItem</span><span class="o">*</span> <span class="n">pItem</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">NodeTreeItem</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">index</span><span class="p">.</span><span class="n">internalPointer</span><span class="p">());</span>
+                <span class="n">pItem</span><span class="o">-&gt;</span><span class="n">settingValue</span><span class="p">();</span>
+                <span class="n">GenApi</span><span class="o">::</span><span class="n">EInterfaceType</span> <span class="n">nodeType</span> <span class="o">=</span> <span class="n">pItem</span><span class="o">-&gt;</span><span class="n">getNode</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetPrincipalInterfaceType</span><span class="p">();</span>
+
+                <span class="n">QWidget</span><span class="o">*</span> <span class="n">pEditorWidget</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+                <span class="c1">// create editor for each node</span>
+                <span class="k">switch</span> <span class="p">(</span><span class="n">nodeType</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfIBoolean</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="n">QComboBox</span><span class="o">*</span> <span class="n">pCheckBox</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QComboBox</span><span class="p">(</span><span class="n">pParent</span><span class="p">);</span>
+                                <span class="n">pEditorWidget</span> <span class="o">=</span> <span class="n">pCheckBox</span><span class="p">;</span>
+                                <span class="k">break</span><span class="p">;</span>
+                        <span class="p">}</span>
+                        <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfICommand</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="n">QPushButton</span><span class="o">*</span> <span class="n">pPushButton</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPushButton</span><span class="p">(</span><span class="n">pParent</span><span class="p">);</span>
+                                <span class="n">pEditorWidget</span> <span class="o">=</span> <span class="n">pPushButton</span><span class="p">;</span>
+                                <span class="k">break</span><span class="p">;</span>
+                        <span class="p">}</span>
+                        <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfIEnumeration</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="n">QComboBox</span><span class="o">*</span> <span class="n">pComboBox</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QComboBox</span><span class="p">(</span><span class="n">pParent</span><span class="p">);</span>
+                                <span class="n">pEditorWidget</span> <span class="o">=</span> <span class="n">pComboBox</span><span class="p">;</span>
+                                <span class="k">break</span><span class="p">;</span>
+                        <span class="p">}</span>
+                        <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfIFloat</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="n">QDoubleSpinBox</span><span class="o">*</span> <span class="n">pDoubleSpinBox</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QDoubleSpinBox</span><span class="p">(</span><span class="n">pParent</span><span class="p">);</span>
+                                <span class="n">pEditorWidget</span> <span class="o">=</span> <span class="n">pDoubleSpinBox</span><span class="p">;</span>
+                                <span class="k">break</span><span class="p">;</span>
+                        <span class="p">}</span>
+                        <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfIInteger</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="n">QSpinBox</span><span class="o">*</span> <span class="n">pSpinBox</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QSpinBox</span><span class="p">(</span><span class="n">pParent</span><span class="p">);</span>
+                                <span class="n">pEditorWidget</span> <span class="o">=</span> <span class="n">pSpinBox</span><span class="p">;</span>
+                                <span class="k">break</span><span class="p">;</span>
+                        <span class="p">}</span>
+                        <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfIString</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="n">QLineEdit</span><span class="o">*</span> <span class="n">pLineEdit</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QLineEdit</span><span class="p">(</span><span class="n">pParent</span><span class="p">);</span>
+                                <span class="n">pEditorWidget</span> <span class="o">=</span> <span class="n">pLineEdit</span><span class="p">;</span>
+                                <span class="k">break</span><span class="p">;</span>
+                        <span class="p">}</span>
+                <span class="p">}</span>
+
+                <span class="k">return</span> <span class="n">pEditorWidget</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// set editor data</span>
+        <span class="kt">void</span> <span class="n">setEditorData</span><span class="p">(</span><span class="n">QWidget</span><span class="o">*</span> <span class="n">pEditor</span><span class="p">,</span> <span class="k">const</span> <span class="n">QModelIndex</span><span class="o">&amp;</span> <span class="n">index</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span>
+        <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">index</span><span class="p">.</span><span class="n">isValid</span><span class="p">())</span>
+                <span class="p">{</span>
+                        <span class="k">return</span><span class="p">;</span>
+                <span class="p">}</span>
+
+                <span class="c1">// get node type</span>
+                <span class="n">NodeTreeItem</span><span class="o">*</span> <span class="n">pItem</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">NodeTreeItem</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">index</span><span class="p">.</span><span class="n">internalPointer</span><span class="p">());</span>
+                <span class="n">GenApi</span><span class="o">::</span><span class="n">EInterfaceType</span> <span class="n">nodeType</span> <span class="o">=</span> <span class="n">pItem</span><span class="o">-&gt;</span><span class="n">getNode</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetPrincipalInterfaceType</span><span class="p">();</span>
+                <span class="k">try</span>
+                <span class="p">{</span>
+                        <span class="c1">// set node data to editor</span>
+                        <span class="k">switch</span> <span class="p">(</span><span class="n">nodeType</span><span class="p">)</span>
+                        <span class="p">{</span>
+                                <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfIBoolean</span><span class="p">:</span> <span class="p">{</span>
+                                        <span class="n">GenApi</span><span class="o">::</span><span class="n">CBooleanPtr</span> <span class="n">pBoolean</span> <span class="o">=</span> <span class="n">pItem</span><span class="o">-&gt;</span><span class="n">getNode</span><span class="p">();</span>
+                                        <span class="n">QComboBox</span><span class="o">*</span> <span class="n">pCheckBox</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">QComboBox</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">pEditor</span><span class="p">);</span>
+                                        <span class="kt">bool</span> <span class="n">x</span> <span class="o">=</span> <span class="n">pBoolean</span><span class="o">-&gt;</span><span class="n">GetValue</span><span class="p">();</span>
+                                        <span class="n">pCheckBox</span><span class="o">-&gt;</span><span class="n">addItem</span><span class="p">(</span><span class="n">x</span> <span class="o">?</span> <span class="s">&quot;true&quot;</span> <span class="o">:</span> <span class="s">&quot;false&quot;</span><span class="p">);</span>
+                                        <span class="n">pCheckBox</span><span class="o">-&gt;</span><span class="n">addItem</span><span class="p">(</span><span class="o">!</span><span class="n">x</span> <span class="o">?</span> <span class="s">&quot;true&quot;</span> <span class="o">:</span> <span class="s">&quot;false&quot;</span><span class="p">);</span>
+                                        <span class="k">break</span><span class="p">;</span>
+                                <span class="p">}</span>
+                                <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfICommand</span><span class="p">:</span> <span class="p">{</span>
+                                        <span class="n">QPushButton</span><span class="o">*</span> <span class="n">pPushButton</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">QPushButton</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">pEditor</span><span class="p">);</span>
+                                        <span class="n">pPushButton</span><span class="o">-&gt;</span><span class="n">setText</span><span class="p">(</span><span class="s">&quot;Execute&quot;</span><span class="p">);</span>
+                                        <span class="k">break</span><span class="p">;</span>
+                                <span class="p">}</span>
+                                <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfIEnumeration</span><span class="p">:</span> <span class="p">{</span>
+                                        <span class="n">GenApi</span><span class="o">::</span><span class="n">CEnumerationPtr</span> <span class="n">pEnumeration</span> <span class="o">=</span> <span class="n">pItem</span><span class="o">-&gt;</span><span class="n">getNode</span><span class="p">();</span>
+                                        <span class="n">QComboBox</span><span class="o">*</span> <span class="n">pComboBox</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">QComboBox</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">pEditor</span><span class="p">);</span>
+                                        <span class="n">GenApi</span><span class="o">::</span><span class="n">NodeList_t</span> <span class="n">entries</span><span class="p">;</span>
+                                        <span class="n">pEnumeration</span><span class="o">-&gt;</span><span class="n">GetEntries</span><span class="p">(</span><span class="n">entries</span><span class="p">);</span>
+
+                                        <span class="k">for</span> <span class="p">(</span><span class="n">GenApi</span><span class="o">::</span><span class="n">CEnumEntryPtr</span> <span class="nl">pEnumEntry</span> <span class="p">:</span> <span class="n">entries</span><span class="p">)</span>
+                                        <span class="p">{</span>
+                                                <span class="n">pComboBox</span><span class="o">-&gt;</span><span class="n">addItem</span><span class="p">(</span><span class="n">QString</span><span class="p">(</span><span class="n">pEnumEntry</span><span class="o">-&gt;</span><span class="n">GetSymbolic</span><span class="p">()));</span>
+                                        <span class="p">}</span>
+
+                                        <span class="n">GenApi</span><span class="o">::</span><span class="n">CEnumEntryPtr</span> <span class="n">pCurrentEnumEntry</span> <span class="o">=</span> <span class="n">pEnumeration</span><span class="o">-&gt;</span><span class="n">GetCurrentEntry</span><span class="p">();</span>
+                                        <span class="n">pComboBox</span><span class="o">-&gt;</span><span class="n">setCurrentText</span><span class="p">(</span><span class="n">QString</span><span class="p">(</span><span class="n">pCurrentEnumEntry</span><span class="o">-&gt;</span><span class="n">GetSymbolic</span><span class="p">()));</span>
+                                        <span class="k">break</span><span class="p">;</span>
+                                <span class="p">}</span>
+                                <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfIFloat</span><span class="p">:</span> <span class="p">{</span>
+                                        <span class="n">GenApi</span><span class="o">::</span><span class="n">CFloatPtr</span> <span class="n">pFloat</span> <span class="o">=</span> <span class="n">pItem</span><span class="o">-&gt;</span><span class="n">getNode</span><span class="p">();</span>
+                                        <span class="n">QDoubleSpinBox</span><span class="o">*</span> <span class="n">pDoubleSpinBox</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">QDoubleSpinBox</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">pEditor</span><span class="p">);</span>
+                                        <span class="n">pDoubleSpinBox</span><span class="o">-&gt;</span><span class="n">setMinimum</span><span class="p">(</span><span class="n">pFloat</span><span class="o">-&gt;</span><span class="n">GetMin</span><span class="p">());</span>
+                                        <span class="n">pDoubleSpinBox</span><span class="o">-&gt;</span><span class="n">setSingleStep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+                                        <span class="n">pDoubleSpinBox</span><span class="o">-&gt;</span><span class="n">setMaximum</span><span class="p">(</span><span class="n">pFloat</span><span class="o">-&gt;</span><span class="n">GetMax</span><span class="p">());</span>
+                                        <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">pFloat</span><span class="o">-&gt;</span><span class="n">GetValue</span><span class="p">());</span>
+                                        <span class="n">pDoubleSpinBox</span><span class="o">-&gt;</span><span class="n">setValue</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+                                        <span class="k">break</span><span class="p">;</span>
+                                <span class="p">}</span>
+                                <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfIInteger</span><span class="p">:</span> <span class="p">{</span>
+                                        <span class="n">GenApi</span><span class="o">::</span><span class="n">CIntegerPtr</span> <span class="n">pInteger</span> <span class="o">=</span> <span class="n">pItem</span><span class="o">-&gt;</span><span class="n">getNode</span><span class="p">();</span>
+                                        <span class="n">QSpinBox</span><span class="o">*</span> <span class="n">pSpinBox</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">QSpinBox</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">pEditor</span><span class="p">);</span>
+                                        <span class="n">pSpinBox</span><span class="o">-&gt;</span><span class="n">setMinimum</span><span class="p">(</span><span class="n">pInteger</span><span class="o">-&gt;</span><span class="n">GetMin</span><span class="p">());</span>
+                                        <span class="n">pSpinBox</span><span class="o">-&gt;</span><span class="n">setSingleStep</span><span class="p">(</span><span class="n">pInteger</span><span class="o">-&gt;</span><span class="n">GetInc</span><span class="p">());</span>
+                                        <span class="n">pSpinBox</span><span class="o">-&gt;</span><span class="n">setMaximum</span><span class="p">(</span><span class="n">pInteger</span><span class="o">-&gt;</span><span class="n">GetMax</span><span class="p">());</span>
+                                        <span class="n">pSpinBox</span><span class="o">-&gt;</span><span class="n">setValue</span><span class="p">(</span><span class="n">pInteger</span><span class="o">-&gt;</span><span class="n">GetValue</span><span class="p">());</span>
+                                        <span class="k">break</span><span class="p">;</span>
+                                <span class="p">}</span>
+                                <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfIString</span><span class="p">:</span> <span class="p">{</span>
+                                        <span class="n">GenApi</span><span class="o">::</span><span class="n">CStringPtr</span> <span class="n">pString</span> <span class="o">=</span> <span class="n">pItem</span><span class="o">-&gt;</span><span class="n">getNode</span><span class="p">();</span>
+                                        <span class="n">QLineEdit</span><span class="o">*</span> <span class="n">pLineEdit</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">QLineEdit</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">pEditor</span><span class="p">);</span>
+                                        <span class="n">pLineEdit</span><span class="o">-&gt;</span><span class="n">setText</span><span class="p">(</span><span class="n">QString</span><span class="p">(</span><span class="n">pString</span><span class="o">-&gt;</span><span class="n">GetValue</span><span class="p">()));</span>
+                                        <span class="k">break</span><span class="p">;</span>
+                                <span class="p">}</span>
+                        <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="k">catch</span> <span class="p">(...)</span>
+                <span class="p">{</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// set data entered by user</span>
+        <span class="kt">void</span> <span class="n">setModelData</span><span class="p">(</span><span class="n">QWidget</span><span class="o">*</span> <span class="n">pEditor</span><span class="p">,</span> <span class="n">QAbstractItemModel</span><span class="o">*</span> <span class="n">pModel</span><span class="p">,</span> <span class="k">const</span> <span class="n">QModelIndex</span><span class="o">&amp;</span> <span class="n">index</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span>
+        <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">index</span><span class="p">.</span><span class="n">isValid</span><span class="p">())</span>
+                <span class="p">{</span>
+                        <span class="k">return</span><span class="p">;</span>
+                <span class="p">}</span>
+
+                <span class="n">QVariant</span> <span class="n">value</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+                <span class="k">try</span>
+                <span class="p">{</span>
+                        <span class="c1">// get node type</span>
+                        <span class="n">NodeTreeItem</span><span class="o">*</span> <span class="n">pItem</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">NodeTreeItem</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">index</span><span class="p">.</span><span class="n">internalPointer</span><span class="p">());</span>
+                        <span class="n">GenApi</span><span class="o">::</span><span class="n">EInterfaceType</span> <span class="n">nodeType</span> <span class="o">=</span> <span class="n">pItem</span><span class="o">-&gt;</span><span class="n">getNode</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetPrincipalInterfaceType</span><span class="p">();</span>
+
+                        <span class="c1">// set data by node type</span>
+                        <span class="k">switch</span> <span class="p">(</span><span class="n">nodeType</span><span class="p">)</span>
+                        <span class="p">{</span>
+                                <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfIBoolean</span><span class="p">:</span> <span class="p">{</span>
+                                        <span class="n">QComboBox</span><span class="o">*</span> <span class="n">pCheckBox</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">QComboBox</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">pEditor</span><span class="p">);</span>
+                                        <span class="n">value</span> <span class="o">=</span> <span class="n">pCheckBox</span><span class="o">-&gt;</span><span class="n">currentText</span><span class="p">();</span>
+                                        <span class="k">break</span><span class="p">;</span>
+                                <span class="p">}</span>
+                                <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfICommand</span><span class="p">:</span> <span class="p">{</span>
+                                        <span class="c1">// execute without value</span>
+                                        <span class="k">break</span><span class="p">;</span>
+                                <span class="p">}</span>
+                                <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfIEnumeration</span><span class="p">:</span> <span class="p">{</span>
+                                        <span class="n">QComboBox</span><span class="o">*</span> <span class="n">pComboBox</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">QComboBox</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">pEditor</span><span class="p">);</span>
+                                        <span class="n">value</span> <span class="o">=</span> <span class="n">pComboBox</span><span class="o">-&gt;</span><span class="n">currentText</span><span class="p">();</span>
+                                        <span class="k">break</span><span class="p">;</span>
+                                <span class="p">}</span>
+                                <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfIFloat</span><span class="p">:</span> <span class="p">{</span>
+                                        <span class="n">GenApi</span><span class="o">::</span><span class="n">CFloatPtr</span> <span class="n">pFloat</span> <span class="o">=</span> <span class="n">pItem</span><span class="o">-&gt;</span><span class="n">getNode</span><span class="p">();</span>
+                                        <span class="n">QDoubleSpinBox</span><span class="o">*</span> <span class="n">pDoubleSpinBox</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">QDoubleSpinBox</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">pEditor</span><span class="p">);</span>
+                                        <span class="n">value</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pDoubleSpinBox</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">());</span>
+                                        <span class="k">break</span><span class="p">;</span>
+                                <span class="p">}</span>
+                                <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfIInteger</span><span class="p">:</span> <span class="p">{</span>
+                                        <span class="n">QSpinBox</span><span class="o">*</span> <span class="n">pSpinBox</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">QSpinBox</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">pEditor</span><span class="p">);</span>
+                                        <span class="n">value</span> <span class="o">=</span> <span class="n">pSpinBox</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">();</span>
+                                        <span class="k">break</span><span class="p">;</span>
+                                <span class="p">}</span>
+                                <span class="k">case</span> <span class="n">GenApi</span><span class="o">::</span><span class="nl">intfIString</span><span class="p">:</span> <span class="p">{</span>
+                                        <span class="n">QLineEdit</span><span class="o">*</span> <span class="n">pLineEdit</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">QLineEdit</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">pEditor</span><span class="p">);</span>
+                                        <span class="n">value</span> <span class="o">=</span> <span class="n">pLineEdit</span><span class="o">-&gt;</span><span class="n">text</span><span class="p">();</span>
+                                        <span class="k">break</span><span class="p">;</span>
+                                <span class="p">}</span>
+                        <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="k">catch</span> <span class="p">(...)</span>
+                <span class="p">{</span>
+                <span class="p">}</span>
+
+                <span class="c1">// set data to model</span>
+                <span class="n">pModel</span><span class="o">-&gt;</span><span class="n">setData</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">Qt</span><span class="o">::</span><span class="n">EditRole</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// update editor geometry</span>
+        <span class="kt">void</span> <span class="n">updateEditorGeometry</span><span class="p">(</span><span class="n">QWidget</span><span class="o">*</span> <span class="n">pEditor</span><span class="p">,</span> <span class="k">const</span> <span class="n">QStyleOptionViewItem</span><span class="o">&amp;</span> <span class="n">option</span><span class="p">,</span> <span class="k">const</span> <span class="n">QModelIndex</span><span class="o">&amp;</span> <span class="n">index</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span>
+        <span class="p">{</span>
+                <span class="n">pEditor</span><span class="o">-&gt;</span><span class="n">setGeometry</span><span class="p">(</span><span class="n">option</span><span class="p">.</span><span class="n">rect</span><span class="p">);</span>
+        <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="qt_examples_featuretree_nodetreeitem.html" class="btn btn-neutral float-right" title="Qt Feature Tree, NodeTreeItem.h" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="qt_examples_featuretree_main.html" class="btn btn-neutral" title="Qt Feature Tree, main.cpp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Lucid Vision Labs, Inc.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.59.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

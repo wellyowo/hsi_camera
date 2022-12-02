@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Qt Streaming, StreamSurface.h &mdash; Arena 0.1.59.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Arena 0.1.59.0 documentation" href="index.html"/>
+        <link rel="up" title="Qt Streaming" href="qt_cpp_examples_streaming.html"/>
+        <link rel="next" title="Qt Streaming, StreamSurfaceWidget.h" href="qt_examples_streaming_streamsurfacewidget.html"/>
+        <link rel="prev" title="Qt Streaming, main.cpp" href="qt_examples_streaming_main.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home">
+          
+
+          <!--
+            
+            <img src="_static/lucid-white.png" class="logo" />
+          -->
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.59
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact_us.html">Contact Us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started_sdk_datasheet.html">Arena SDK Datasheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arena_sdk_windows.html">Arena SDK for Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arena_sdk_linux.html">Arena SDK for Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdk.html">Code Reference &amp; Samples</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Arena</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="sdk.html">Code Reference &amp; Samples</a> &raquo;</li>
+        
+          <li><a href="qt.html">Qt</a> &raquo;</li>
+        
+          <li><a href="qt_cpp_examples.html">Qt C++ Examples</a> &raquo;</li>
+        
+          <li><a href="qt_cpp_examples_streaming.html">Qt Streaming</a> &raquo;</li>
+        
+      <li>Qt Streaming, StreamSurface.h</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="qt-streaming-streamsurface-h">
+<h1>Qt Streaming, StreamSurface.h<a class="headerlink" href="#qt-streaming-streamsurface-h" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/**************************************************************************************</span>
+<span class="cm">***                                                                                 ***</span>
+<span class="cm">***  Copyright (c) 2021, Lucid Vision Labs, Inc.                                    ***</span>
+<span class="cm">***                                                                                 ***</span>
+<span class="cm">***  THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR     ***</span>
+<span class="cm">***  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,       ***</span>
+<span class="cm">***  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE    ***</span>
+<span class="cm">***  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER         ***</span>
+<span class="cm">***  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  ***</span>
+<span class="cm">***  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE  ***</span>
+<span class="cm">***  SOFTWARE.                                                                      ***</span>
+<span class="cm">***                                                                                 ***</span>
+<span class="cm">***************************************************************************************/</span>
+
+<span class="cm">/**************************************************************************************</span>
+<span class="cm">***                                                                                 ***</span>
+<span class="cm">***               This example requires Qt library installed                        ***</span>
+<span class="cm">***                                                                                 ***</span>
+<span class="cm">***       For more information see &quot;Qt_README.txt&quot; in cpp source examples folder    ***</span>
+<span class="cm">***                                                                                 ***</span>
+<span class="cm">***                             default path:                                       ***</span>
+<span class="cm">***      C:\ProgramData\Lucid Vision Labs\Examples\src\C++ Source Code Examples     ***</span>
+<span class="cm">***                                                                                 ***</span>
+<span class="cm">***************************************************************************************/</span>
+
+
+<span class="cp">#pragma once</span>
+<span class="cp">#include</span> <span class="cpf">&quot;QtWidgets/qwidget.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;QtCore/qrect.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;QtGui/qimage.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;QtMultimedia/qabstractvideosurface.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;QtMultimedia/qvideoframe.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;QtMultimedia/qvideosurfaceformat.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;QtGui/qpainter.h&quot;</span><span class="cp"></span>
+
+<span class="k">class</span> <span class="nc">StreamSurface</span> <span class="o">:</span> <span class="k">public</span> <span class="n">QAbstractVideoSurface</span>
+<span class="p">{</span>
+        <span class="n">Q_OBJECT</span>
+
+<span class="k">private</span><span class="o">:</span>
+        <span class="n">QWidget</span><span class="o">*</span> <span class="n">m_pWidget</span><span class="p">;</span>
+        <span class="n">QImage</span><span class="o">::</span><span class="n">Format</span> <span class="n">m_imageFormat</span><span class="p">;</span>
+        <span class="n">QRect</span> <span class="n">m_targetRect</span><span class="p">;</span>
+        <span class="n">QSize</span> <span class="n">m_imageSize</span><span class="p">;</span>
+        <span class="n">QRect</span> <span class="n">m_sourceRect</span><span class="p">;</span>
+        <span class="n">QVideoFrame</span> <span class="n">m_currentFrame</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+        <span class="n">StreamSurface</span><span class="p">(</span><span class="n">QWidget</span><span class="o">*</span> <span class="n">pWidget</span><span class="p">,</span> <span class="n">QObject</span><span class="o">*</span> <span class="n">pParent</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">:</span>
+                <span class="n">QAbstractVideoSurface</span><span class="p">(</span><span class="n">pParent</span><span class="p">),</span>
+                <span class="n">m_pWidget</span><span class="p">(</span><span class="n">pWidget</span><span class="p">),</span>
+                <span class="n">m_imageFormat</span><span class="p">(</span><span class="n">QImage</span><span class="o">::</span><span class="n">Format_Invalid</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="p">}</span>
+
+        <span class="n">QList</span><span class="o">&lt;</span><span class="n">QVideoFrame</span><span class="o">::</span><span class="n">PixelFormat</span><span class="o">&gt;</span> <span class="n">supportedPixelFormats</span><span class="p">(</span><span class="n">QAbstractVideoBuffer</span><span class="o">::</span><span class="n">HandleType</span> <span class="n">handleType</span> <span class="o">=</span> <span class="n">QAbstractVideoBuffer</span><span class="o">::</span><span class="n">NoHandle</span><span class="p">)</span> <span class="k">const</span>
+        <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">handleType</span> <span class="o">==</span> <span class="n">QAbstractVideoBuffer</span><span class="o">::</span><span class="n">NoHandle</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">QList</span><span class="o">&lt;</span><span class="n">QVideoFrame</span><span class="o">::</span><span class="n">PixelFormat</span><span class="o">&gt;</span><span class="p">()</span>
+                                   <span class="o">&lt;&lt;</span> <span class="n">QVideoFrame</span><span class="o">::</span><span class="n">Format_RGB32</span>
+                                   <span class="o">&lt;&lt;</span> <span class="n">QVideoFrame</span><span class="o">::</span><span class="n">Format_ARGB32</span>
+                                   <span class="o">&lt;&lt;</span> <span class="n">QVideoFrame</span><span class="o">::</span><span class="n">Format_ARGB32_Premultiplied</span>
+                                   <span class="o">&lt;&lt;</span> <span class="n">QVideoFrame</span><span class="o">::</span><span class="n">Format_RGB565</span>
+                                   <span class="o">&lt;&lt;</span> <span class="n">QVideoFrame</span><span class="o">::</span><span class="n">Format_RGB555</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">QList</span><span class="o">&lt;</span><span class="n">QVideoFrame</span><span class="o">::</span><span class="n">PixelFormat</span><span class="o">&gt;</span><span class="p">();</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="kt">bool</span> <span class="n">isFormatSupported</span><span class="p">(</span><span class="k">const</span> <span class="n">QVideoSurfaceFormat</span><span class="o">&amp;</span> <span class="n">format</span><span class="p">,</span> <span class="n">QVideoSurfaceFormat</span><span class="o">*</span> <span class="n">similar</span><span class="p">)</span> <span class="k">const</span>
+        <span class="p">{</span>
+                <span class="n">Q_UNUSED</span><span class="p">(</span><span class="n">similar</span><span class="p">);</span>
+
+                <span class="k">const</span> <span class="n">QImage</span><span class="o">::</span><span class="n">Format</span> <span class="n">imageFormat</span> <span class="o">=</span> <span class="n">QVideoFrame</span><span class="o">::</span><span class="n">imageFormatFromPixelFormat</span><span class="p">(</span><span class="n">format</span><span class="p">.</span><span class="n">pixelFormat</span><span class="p">());</span>
+                <span class="k">const</span> <span class="n">QSize</span> <span class="n">size</span> <span class="o">=</span> <span class="n">format</span><span class="p">.</span><span class="n">frameSize</span><span class="p">();</span>
+
+                <span class="k">return</span> <span class="n">imageFormat</span> <span class="o">!=</span> <span class="n">QImage</span><span class="o">::</span><span class="n">Format_Invalid</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">size</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">format</span><span class="p">.</span><span class="n">handleType</span><span class="p">()</span> <span class="o">==</span> <span class="n">QAbstractVideoBuffer</span><span class="o">::</span><span class="n">NoHandle</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kt">bool</span> <span class="n">start</span><span class="p">(</span><span class="k">const</span> <span class="n">QVideoSurfaceFormat</span><span class="o">&amp;</span> <span class="n">format</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">const</span> <span class="n">QImage</span><span class="o">::</span><span class="n">Format</span> <span class="n">imageFormat</span> <span class="o">=</span> <span class="n">QVideoFrame</span><span class="o">::</span><span class="n">imageFormatFromPixelFormat</span><span class="p">(</span><span class="n">format</span><span class="p">.</span><span class="n">pixelFormat</span><span class="p">());</span>
+                <span class="k">const</span> <span class="n">QSize</span> <span class="n">size</span> <span class="o">=</span> <span class="n">format</span><span class="p">.</span><span class="n">frameSize</span><span class="p">();</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="n">imageFormat</span> <span class="o">!=</span> <span class="n">QImage</span><span class="o">::</span><span class="n">Format_Invalid</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">size</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">())</span>
+                <span class="p">{</span>
+                        <span class="n">m_imageFormat</span> <span class="o">=</span> <span class="n">imageFormat</span><span class="p">;</span>
+                        <span class="n">m_imageSize</span> <span class="o">=</span> <span class="n">size</span><span class="p">;</span>
+                        <span class="n">m_sourceRect</span> <span class="o">=</span> <span class="n">format</span><span class="p">.</span><span class="n">viewport</span><span class="p">();</span>
+
+                        <span class="n">QAbstractVideoSurface</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">format</span><span class="p">);</span>
+
+                        <span class="n">m_pWidget</span><span class="o">-&gt;</span><span class="n">updateGeometry</span><span class="p">();</span>
+                        <span class="n">updateVideoRect</span><span class="p">();</span>
+
+                        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="kt">void</span> <span class="n">stop</span><span class="p">()</span>
+        <span class="p">{</span>
+                <span class="n">m_currentFrame</span> <span class="o">=</span> <span class="n">QVideoFrame</span><span class="p">();</span>
+                <span class="n">m_targetRect</span> <span class="o">=</span> <span class="n">QRect</span><span class="p">();</span>
+
+                <span class="n">QAbstractVideoSurface</span><span class="o">::</span><span class="n">stop</span><span class="p">();</span>
+
+                <span class="n">m_pWidget</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="kt">bool</span> <span class="n">present</span><span class="p">(</span><span class="k">const</span> <span class="n">QVideoFrame</span><span class="o">&amp;</span> <span class="n">frame</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">surfaceFormat</span><span class="p">().</span><span class="n">pixelFormat</span><span class="p">()</span> <span class="o">!=</span> <span class="n">frame</span><span class="p">.</span><span class="n">pixelFormat</span><span class="p">()</span> <span class="o">||</span>
+                        <span class="n">surfaceFormat</span><span class="p">().</span><span class="n">frameSize</span><span class="p">()</span> <span class="o">!=</span> <span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">())</span>
+                <span class="p">{</span>
+                        <span class="n">setError</span><span class="p">(</span><span class="n">IncorrectFormatError</span><span class="p">);</span>
+                        <span class="n">stop</span><span class="p">();</span>
+
+                        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                        <span class="n">m_currentFrame</span> <span class="o">=</span> <span class="n">frame</span><span class="p">;</span>
+                        <span class="n">m_pWidget</span><span class="o">-&gt;</span><span class="n">repaint</span><span class="p">(</span><span class="n">m_targetRect</span><span class="p">);</span>
+
+                        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="n">QRect</span> <span class="n">videoRect</span><span class="p">()</span> <span class="k">const</span>
+        <span class="p">{</span>
+                <span class="k">return</span> <span class="n">m_targetRect</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kt">void</span> <span class="n">updateVideoRect</span><span class="p">()</span>
+        <span class="p">{</span>
+                <span class="n">QSize</span> <span class="n">size</span> <span class="o">=</span> <span class="n">surfaceFormat</span><span class="p">().</span><span class="n">sizeHint</span><span class="p">();</span>
+                <span class="n">size</span><span class="p">.</span><span class="n">scale</span><span class="p">(</span><span class="n">m_pWidget</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">().</span><span class="n">boundedTo</span><span class="p">(</span><span class="n">size</span><span class="p">),</span> <span class="n">Qt</span><span class="o">::</span><span class="n">KeepAspectRatio</span><span class="p">);</span>
+
+                <span class="n">m_targetRect</span> <span class="o">=</span> <span class="n">QRect</span><span class="p">(</span><span class="n">QPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">size</span><span class="p">);</span>
+                <span class="n">m_targetRect</span><span class="p">.</span><span class="n">moveCenter</span><span class="p">(</span><span class="n">m_pWidget</span><span class="o">-&gt;</span><span class="n">rect</span><span class="p">().</span><span class="n">center</span><span class="p">());</span>
+        <span class="p">}</span>
+
+        <span class="kt">void</span> <span class="n">paint</span><span class="p">(</span><span class="n">QPainter</span><span class="o">*</span> <span class="n">pPainter</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">m_currentFrame</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">QAbstractVideoBuffer</span><span class="o">::</span><span class="n">ReadOnly</span><span class="p">))</span>
+                <span class="p">{</span>
+                        <span class="k">const</span> <span class="n">QTransform</span> <span class="n">oldTransform</span> <span class="o">=</span> <span class="n">pPainter</span><span class="o">-&gt;</span><span class="n">transform</span><span class="p">();</span>
+
+                        <span class="k">if</span> <span class="p">(</span><span class="n">surfaceFormat</span><span class="p">().</span><span class="n">scanLineDirection</span><span class="p">()</span> <span class="o">==</span> <span class="n">QVideoSurfaceFormat</span><span class="o">::</span><span class="n">BottomToTop</span><span class="p">)</span>
+                        <span class="p">{</span>
+                                <span class="n">pPainter</span><span class="o">-&gt;</span><span class="n">scale</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+                                <span class="n">pPainter</span><span class="o">-&gt;</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">m_pWidget</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">());</span>
+                        <span class="p">}</span>
+
+                        <span class="n">QImage</span> <span class="n">image</span><span class="p">(</span>
+                                <span class="n">m_currentFrame</span><span class="p">.</span><span class="n">bits</span><span class="p">(),</span>
+                                <span class="n">m_currentFrame</span><span class="p">.</span><span class="n">width</span><span class="p">(),</span>
+                                <span class="n">m_currentFrame</span><span class="p">.</span><span class="n">height</span><span class="p">(),</span>
+                                <span class="n">m_currentFrame</span><span class="p">.</span><span class="n">bytesPerLine</span><span class="p">(),</span>
+                                <span class="n">m_imageFormat</span><span class="p">);</span>
+
+                        <span class="n">pPainter</span><span class="o">-&gt;</span><span class="n">drawImage</span><span class="p">(</span><span class="n">m_targetRect</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">m_sourceRect</span><span class="p">);</span>
+
+                        <span class="n">pPainter</span><span class="o">-&gt;</span><span class="n">setTransform</span><span class="p">(</span><span class="n">oldTransform</span><span class="p">);</span>
+
+                        <span class="n">m_currentFrame</span><span class="p">.</span><span class="n">unmap</span><span class="p">();</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="qt_examples_streaming_streamsurfacewidget.html" class="btn btn-neutral float-right" title="Qt Streaming, StreamSurfaceWidget.h" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="qt_examples_streaming_main.html" class="btn btn-neutral" title="Qt Streaming, main.cpp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Lucid Vision Labs, Inc.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.59.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

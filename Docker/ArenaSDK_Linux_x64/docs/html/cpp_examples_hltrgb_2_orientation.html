@@ -1,0 +1,779 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>HLTRGB, Step 2: Orientation &mdash; Arena 0.1.59.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Arena 0.1.59.0 documentation" href="index.html"/>
+        <link rel="up" title="C++ Code Samples" href="cpp_examples.html"/>
+        <link rel="next" title="HLTRGB, Step 3: Overlay" href="cpp_examples_hltrgb_3_overlay.html"/>
+        <link rel="prev" title="HLTRGB, Step 1: Calibration" href="cpp_examples_hltrgb_1_calibration.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home">
+          
+
+          <!--
+            
+            <img src="_static/lucid-white.png" class="logo" />
+          -->
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.59
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact_us.html">Contact Us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started_sdk_datasheet.html">Arena SDK Datasheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arena_sdk_windows.html">Arena SDK for Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arena_sdk_linux.html">Arena SDK for Linux</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="sdk.html">Code Reference &amp; Samples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="gentl.html">GenTL Features</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="cpp.html">Arena C++</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cpp_arena.html">Arena C++</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_genapi.html">GenApi C++</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cpp_save.html">Save C++</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="cpp_examples.html">C++ Code Samples</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_simpleacquisition.html">Simple Acquisition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_acquisition.html">Acquisition, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_acquisition_multidevice.html">Acquisition, Multi-Device Acquisition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_acquisition_rapidacquisition.html">Acquisition, Rapid Acquisition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_acquisition_sensorbinning.html">Acquisition, Sensor Binning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_acquisition_multithreadedacquisitionandsave.html">Acquisition, Multithreaded Acquisition and Save</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_callbacks_onnodechange.html">Callbacks, On Node Change</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_callbacks_polling.html">Callbacks, Polling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_callbacks_onevent.html">Callbacks, On Event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_callbacks_imagecallbacks.html">Callbacks, Image Callbacks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_callbacks_multithreadedimagecallbacks.html">Callbacks, Multithreaded Image Callbacks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_chunkdata.html">Chunk Data, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_chunkdata_crcvalidation.html">Chunk Data, CRC Validation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_enumeration.html">Enumeration, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_enumeration_handlingdisconnections.html">Enumeration, Handling Disconnections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_explore_nodemaps.html">Explore, Node Maps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_explore_nodes.html">Explore, Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_explore_nodetypes.html">Explore, Node Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_exposure.html">Exposure, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_exposure_forhdr.html">Exposure, High Dynamic Range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_exposure_long.html">Exposure, Long Exposure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_forceip.html">Force IP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_helios_heatmap.html">Helios, HeatMap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_helios_minmaxdepth.html">Helios, Min Max Depth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_helios_smoothresults.html">Helios, Smooth Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_hltrgb_1_calibration.html">HLTRGB, Step 1: Calibration</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">HLTRGB, Step 2: Orientation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_hltrgb_3_overlay.html">HLTRGB, Step 3: Overlay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_ipconfig_manual.html">IP Config, Manual</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_cpp_ipconfig_auto.html">IP Config, Auto</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_lut.html">Lookup Table, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_multicast.html">Multicast, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_pixelcorrection.html">Pixel Correction, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_polarization_dolpaolp.html">Polarization, DoLP AoLP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_polarization_colordolpaolp.html">Polarization, Color DoLP AoLP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_record.html">Record, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_save.html">Save, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_save_filenamepattern.html">Save, File Name Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_save_ply.html">Save, Ply</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_scheduledactioncommands.html">Scheduled Action Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_sequencer_hdr.html">Sequencer, HDR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_streamables.html">Streamables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_trigger.html">Trigger, Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_trigger_nextleader.html">Trigger, NextLeader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_trigger_overlappingtrigger.html">Trigger, Overlapping Trigger</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cpp_examples_usersets.html">User Sets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="c.html">Arena C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html">Qt</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Arena</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="sdk.html">Code Reference &amp; Samples</a> &raquo;</li>
+        
+          <li><a href="cpp.html">Arena C++</a> &raquo;</li>
+        
+          <li><a href="cpp_examples.html">C++ Code Samples</a> &raquo;</li>
+        
+      <li>HLTRGB, Step 2: Orientation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hltrgb-step-2-orientation">
+<h1>HLTRGB, Step 2: Orientation<a class="headerlink" href="#hltrgb-step-2-orientation" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/***************************************************************************************</span>
+<span class="cm"> ***                                                                                 ***</span>
+<span class="cm"> ***  Copyright (c) 2021, Lucid Vision Labs, Inc.                                    ***</span>
+<span class="cm"> ***                                                                                 ***</span>
+<span class="cm"> ***  THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR     ***</span>
+<span class="cm"> ***  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,       ***</span>
+<span class="cm"> ***  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE    ***</span>
+<span class="cm"> ***  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER         ***</span>
+<span class="cm"> ***  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  ***</span>
+<span class="cm"> ***  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE  ***</span>
+<span class="cm"> ***  SOFTWARE.                                                                      ***</span>
+<span class="cm"> ***                                                                                 ***</span>
+<span class="cm"> ***************************************************************************************/</span>
+
+ <span class="cm">/**************************************************************************************</span>
+<span class="cm"> ***                                                                                 ***</span>
+<span class="cm"> ***               This example requires OpenCV library installed                    ***</span>
+<span class="cm"> ***                                                                                 ***</span>
+<span class="cm"> ***   For more information see &quot;HLTRGB_README.txt&quot; in cpp source examples folder    ***</span>
+<span class="cm"> ***                                                                                 ***</span>
+<span class="cm"> ***                             default paths:                                      ***</span>
+<span class="cm"> ***                                                                                 ***</span>
+<span class="cm"> ***                                Windows:                                         ***</span>
+<span class="cm"> ***      C:\ProgramData\Lucid Vision Labs\Examples\src\C++ Source Code Examples     ***</span>
+<span class="cm"> ***                                                                                 ***</span>
+<span class="cm"> ***                                Linux:                                           ***</span>
+<span class="cm"> ***                    ArenaSDK root folder /Examples/Arena                         ***</span>
+<span class="cm"> ***                                                                                 ***</span>
+<span class="cm"> ***************************************************************************************/</span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;stdafx.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;ArenaApi.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;SaveApi.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#define TAB1 &quot;  &quot;</span>
+<span class="cp">#define TAB2 &quot;    &quot;</span>
+<span class="cp">#define TAB3 &quot;      &quot;</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;opencv2/core/mat.hpp&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;opencv2/calib3d/calib3d.hpp&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;opencv2/imgproc/imgproc.hpp&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;opencv2/highgui/highgui.hpp&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;sstream&gt;</span><span class="cp"></span>
+
+<span class="c1">// Helios RGB: Orientation</span>
+<span class="c1">// This example demonstrates color overlay over 3D image, part 2 - Devices Orientation:</span>
+<span class="c1">//              Our method to overlay color data can be accomplished by reading the 3D points ABC (XYZ) from the Helios</span>
+<span class="c1">//      and projecting them onto the Triton color (RGB) camera directly. This requires first solving for the orientation</span>
+<span class="c1">//      of the Helios coordinate system relative to the Triton’s native coordinate space (rotation and translation wise).</span>
+<span class="c1">//      This step can be achieved by using the open function solvePnP().</span>
+<span class="c1">//      Solving for orientation of the Helios relative to the Triton requires a single image of the calibration target from each camera.</span>
+<span class="c1">//      Place the calibration target near the center of both cameras field of view and at an appropriate distance from the cameras.</span>
+<span class="c1">//      Make sure the calibration target is placed at the same distance you will be imaging in your application.</span>
+<span class="c1">//      Make sure not to move the calibration target or cameras in between grabbing the Helios image and grabbing the Triton image.</span>
+
+<span class="c1">// =-=-=-=-=-=-=-=-=-</span>
+<span class="c1">// =-=- SETTINGS =-=-</span>
+<span class="c1">// =-=-=-=-=-=-=-=-=-</span>
+
+<span class="c1">// image timeout</span>
+<span class="cp">#define TIMEOUT 2000</span>
+
+<span class="c1">// calibration values file name</span>
+<span class="cp">#define FILE_NAME_IN &quot;tritoncalibration.yml&quot;</span>
+
+<span class="c1">// orientation values file name</span>
+<span class="cp">#define FILE_NAME_OUT &quot;orientation.yml&quot;</span>
+
+<span class="c1">// =-=-=-=-=-=-=-=-=-</span>
+<span class="c1">// =-=- HELPERS -=-=-</span>
+<span class="c1">// =-=-=-=-=-=-=-=-=-</span>
+
+<span class="c1">// helper function</span>
+<span class="kt">void</span> <span class="nf">getImageHLT</span><span class="p">(</span><span class="n">Arena</span><span class="o">::</span><span class="n">IDevice</span><span class="o">*</span> <span class="n">pHeliosDevice</span><span class="p">,</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&amp;</span> <span class="n">intensity_image</span><span class="p">,</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&amp;</span> <span class="n">xyz_mm</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">Arena</span><span class="o">::</span><span class="n">SetNodeValue</span><span class="o">&lt;</span><span class="n">GenICam</span><span class="o">::</span><span class="n">gcstring</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pHeliosDevice</span><span class="o">-&gt;</span><span class="n">GetNodeMap</span><span class="p">(),</span> <span class="s">&quot;PixelFormat&quot;</span><span class="p">,</span> <span class="s">&quot;Coord3D_ABCY16&quot;</span><span class="p">);</span>
+
+        <span class="c1">// enable stream auto negotiate packet size</span>
+        <span class="n">Arena</span><span class="o">::</span><span class="n">SetNodeValue</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">(</span>
+                <span class="n">pHeliosDevice</span><span class="o">-&gt;</span><span class="n">GetTLStreamNodeMap</span><span class="p">(),</span>
+                <span class="s">&quot;StreamAutoNegotiatePacketSize&quot;</span><span class="p">,</span>
+                <span class="nb">true</span><span class="p">);</span>
+
+        <span class="c1">// enable stream packet resend</span>
+        <span class="n">Arena</span><span class="o">::</span><span class="n">SetNodeValue</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">(</span>
+                <span class="n">pHeliosDevice</span><span class="o">-&gt;</span><span class="n">GetTLStreamNodeMap</span><span class="p">(),</span>
+                <span class="s">&quot;StreamPacketResendEnable&quot;</span><span class="p">,</span>
+                <span class="nb">true</span><span class="p">);</span>
+
+        <span class="c1">// Read the scale factor and offsets to convert from unsigned 16-bit values</span>
+        <span class="c1">// in the Coord3D_ABCY16 pixel format to coordinates in mm</span>
+        <span class="n">GenApi</span><span class="o">::</span><span class="n">INodeMap</span><span class="o">*</span> <span class="n">node_map</span> <span class="o">=</span> <span class="n">pHeliosDevice</span><span class="o">-&gt;</span><span class="n">GetNodeMap</span><span class="p">();</span>
+        <span class="kt">double</span> <span class="n">xyz_scale_mm</span> <span class="o">=</span> <span class="n">Arena</span><span class="o">::</span><span class="n">GetNodeValue</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">node_map</span><span class="p">,</span> <span class="s">&quot;Scan3dCoordinateScale&quot;</span><span class="p">);</span>
+        <span class="n">Arena</span><span class="o">::</span><span class="n">SetNodeValue</span><span class="o">&lt;</span><span class="n">GenICam</span><span class="o">::</span><span class="n">gcstring</span><span class="o">&gt;</span><span class="p">(</span><span class="n">node_map</span><span class="p">,</span> <span class="s">&quot;Scan3dCoordinateSelector&quot;</span><span class="p">,</span> <span class="s">&quot;CoordinateA&quot;</span><span class="p">);</span>
+        <span class="kt">double</span> <span class="n">x_offset_mm</span> <span class="o">=</span> <span class="n">Arena</span><span class="o">::</span><span class="n">GetNodeValue</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">node_map</span><span class="p">,</span> <span class="s">&quot;Scan3dCoordinateOffset&quot;</span><span class="p">);</span>
+        <span class="n">Arena</span><span class="o">::</span><span class="n">SetNodeValue</span><span class="o">&lt;</span><span class="n">GenICam</span><span class="o">::</span><span class="n">gcstring</span><span class="o">&gt;</span><span class="p">(</span><span class="n">node_map</span><span class="p">,</span> <span class="s">&quot;Scan3dCoordinateSelector&quot;</span><span class="p">,</span> <span class="s">&quot;CoordinateB&quot;</span><span class="p">);</span>
+        <span class="kt">double</span> <span class="n">y_offset_mm</span> <span class="o">=</span> <span class="n">Arena</span><span class="o">::</span><span class="n">GetNodeValue</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">node_map</span><span class="p">,</span> <span class="s">&quot;Scan3dCoordinateOffset&quot;</span><span class="p">);</span>
+        <span class="n">Arena</span><span class="o">::</span><span class="n">SetNodeValue</span><span class="o">&lt;</span><span class="n">GenICam</span><span class="o">::</span><span class="n">gcstring</span><span class="o">&gt;</span><span class="p">(</span><span class="n">node_map</span><span class="p">,</span> <span class="s">&quot;Scan3dCoordinateSelector&quot;</span><span class="p">,</span> <span class="s">&quot;CoordinateC&quot;</span><span class="p">);</span>
+        <span class="kt">double</span> <span class="n">z_offset_mm</span> <span class="o">=</span> <span class="n">Arena</span><span class="o">::</span><span class="n">GetNodeValue</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">node_map</span><span class="p">,</span> <span class="s">&quot;Scan3dCoordinateOffset&quot;</span><span class="p">);</span>
+
+        <span class="n">pHeliosDevice</span><span class="o">-&gt;</span><span class="n">StartStream</span><span class="p">();</span>
+        <span class="n">Arena</span><span class="o">::</span><span class="n">IImage</span><span class="o">*</span> <span class="n">image</span> <span class="o">=</span> <span class="n">pHeliosDevice</span><span class="o">-&gt;</span><span class="n">GetImage</span><span class="p">(</span><span class="n">TIMEOUT</span><span class="p">);</span>
+
+        <span class="kt">size_t</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">;</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="n">image</span><span class="o">-&gt;</span><span class="n">GetHeight</span><span class="p">();</span>
+        <span class="n">width</span> <span class="o">=</span> <span class="n">image</span><span class="o">-&gt;</span><span class="n">GetWidth</span><span class="p">();</span>
+
+        <span class="n">xyz_mm</span> <span class="o">=</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">height</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">width</span><span class="p">,</span> <span class="n">CV_32FC3</span><span class="p">);</span>
+        <span class="n">intensity_image</span> <span class="o">=</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">height</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">width</span><span class="p">,</span> <span class="n">CV_16UC1</span><span class="p">);</span>
+
+        <span class="k">const</span> <span class="kt">uint16_t</span><span class="o">*</span> <span class="n">input_data</span><span class="p">;</span>
+        <span class="n">input_data</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint16_t</span><span class="o">*</span><span class="p">)</span><span class="n">image</span><span class="o">-&gt;</span><span class="n">GetData</span><span class="p">();</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">ir</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">ir</span> <span class="o">&lt;</span> <span class="n">height</span><span class="p">;</span> <span class="o">++</span><span class="n">ir</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">ic</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">ic</span> <span class="o">&lt;</span> <span class="n">width</span><span class="p">;</span> <span class="o">++</span><span class="n">ic</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="c1">// Get unsigned 16 bit values for X,Y,Z coordinates</span>
+                        <span class="n">ushort</span> <span class="n">x_u16</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+                        <span class="n">ushort</span> <span class="n">y_u16</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+                        <span class="n">ushort</span> <span class="n">z_u16</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+
+                        <span class="c1">// Convert 16-bit X,Y,Z to float values in mm</span>
+                        <span class="n">xyz_mm</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">Vec3f</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ir</span><span class="p">,</span> <span class="n">ic</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">float</span><span class="p">)(</span><span class="n">x_u16</span> <span class="o">*</span> <span class="n">xyz_scale_mm</span> <span class="o">+</span> <span class="n">x_offset_mm</span><span class="p">);</span>
+                        <span class="n">xyz_mm</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">Vec3f</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ir</span><span class="p">,</span> <span class="n">ic</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">float</span><span class="p">)(</span><span class="n">y_u16</span> <span class="o">*</span> <span class="n">xyz_scale_mm</span> <span class="o">+</span> <span class="n">y_offset_mm</span><span class="p">);</span>
+                        <span class="n">xyz_mm</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">Vec3f</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ir</span><span class="p">,</span> <span class="n">ic</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">float</span><span class="p">)(</span><span class="n">z_u16</span> <span class="o">*</span> <span class="n">xyz_scale_mm</span> <span class="o">+</span> <span class="n">z_offset_mm</span><span class="p">);</span>
+
+                        <span class="n">intensity_image</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">ushort</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ir</span><span class="p">,</span> <span class="n">ic</span><span class="p">)</span> <span class="o">=</span> <span class="n">input_data</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span> <span class="c1">// // Intensity value</span>
+
+                        <span class="n">input_data</span> <span class="o">+=</span> <span class="mi">4</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">pHeliosDevice</span><span class="o">-&gt;</span><span class="n">RequeueBuffer</span><span class="p">(</span><span class="n">image</span><span class="p">);</span>
+        <span class="n">pHeliosDevice</span><span class="o">-&gt;</span><span class="n">StopStream</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// helper function</span>
+<span class="kt">void</span> <span class="nf">getImageTRI</span><span class="p">(</span><span class="n">Arena</span><span class="o">::</span><span class="n">IDevice</span><span class="o">*</span> <span class="n">pDeviceTriton</span><span class="p">,</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&amp;</span> <span class="n">triton_image</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">Arena</span><span class="o">::</span><span class="n">SetNodeValue</span><span class="o">&lt;</span><span class="n">GenICam</span><span class="o">::</span><span class="n">gcstring</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pDeviceTriton</span><span class="o">-&gt;</span><span class="n">GetNodeMap</span><span class="p">(),</span> <span class="s">&quot;PixelFormat&quot;</span><span class="p">,</span> <span class="s">&quot;RGB8&quot;</span><span class="p">);</span>
+
+        <span class="c1">// enable stream auto negotiate packet size</span>
+        <span class="n">Arena</span><span class="o">::</span><span class="n">SetNodeValue</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">(</span>
+                <span class="n">pDeviceTriton</span><span class="o">-&gt;</span><span class="n">GetTLStreamNodeMap</span><span class="p">(),</span>
+                <span class="s">&quot;StreamAutoNegotiatePacketSize&quot;</span><span class="p">,</span>
+                <span class="nb">true</span><span class="p">);</span>
+
+        <span class="c1">// enable stream packet resend</span>
+        <span class="n">Arena</span><span class="o">::</span><span class="n">SetNodeValue</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">(</span>
+                <span class="n">pDeviceTriton</span><span class="o">-&gt;</span><span class="n">GetTLStreamNodeMap</span><span class="p">(),</span>
+                <span class="s">&quot;StreamPacketResendEnable&quot;</span><span class="p">,</span>
+                <span class="nb">true</span><span class="p">);</span>
+
+        <span class="n">pDeviceTriton</span><span class="o">-&gt;</span><span class="n">StartStream</span><span class="p">();</span>
+        <span class="n">Arena</span><span class="o">::</span><span class="n">IImage</span><span class="o">*</span> <span class="n">pImage</span> <span class="o">=</span> <span class="n">pDeviceTriton</span><span class="o">-&gt;</span><span class="n">GetImage</span><span class="p">(</span><span class="n">TIMEOUT</span><span class="p">);</span>
+
+        <span class="c1">// convert Triton image to mono for dot finding</span>
+        <span class="n">Arena</span><span class="o">::</span><span class="n">IImage</span><span class="o">*</span> <span class="n">pConvert</span> <span class="o">=</span> <span class="n">Arena</span><span class="o">::</span><span class="n">ImageFactory</span><span class="o">::</span><span class="n">Convert</span><span class="p">(</span><span class="n">pImage</span><span class="p">,</span> <span class="n">Mono8</span><span class="p">);</span>
+        <span class="kt">size_t</span> <span class="n">w</span> <span class="o">=</span> <span class="n">pImage</span><span class="o">-&gt;</span><span class="n">GetWidth</span><span class="p">();</span>
+        <span class="kt">size_t</span> <span class="n">h</span> <span class="o">=</span> <span class="n">pImage</span><span class="o">-&gt;</span><span class="n">GetHeight</span><span class="p">();</span>
+        <span class="n">cv</span><span class="o">::</span><span class="n">Size</span> <span class="n">patternsize</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="c1">//</span>
+        <span class="n">triton_image</span> <span class="o">=</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">h</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">w</span><span class="p">,</span> <span class="n">CV_8UC1</span><span class="p">);</span>
+        <span class="n">memcpy</span><span class="p">(</span><span class="n">triton_image</span><span class="p">.</span><span class="n">data</span><span class="p">,</span> <span class="n">pConvert</span><span class="o">-&gt;</span><span class="n">GetData</span><span class="p">(),</span> <span class="n">h</span> <span class="o">*</span> <span class="n">w</span><span class="p">);</span>
+
+        <span class="n">pDeviceTriton</span><span class="o">-&gt;</span><span class="n">RequeueBuffer</span><span class="p">(</span><span class="n">pImage</span><span class="p">);</span>
+        <span class="n">pDeviceTriton</span><span class="o">-&gt;</span><span class="n">StopStream</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// helper function</span>
+<span class="kt">void</span> <span class="nf">findCalibrationPointsHLT</span><span class="p">(</span><span class="k">const</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&amp;</span> <span class="n">image_in</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">Point2f</span><span class="o">&gt;&amp;</span> <span class="n">grid_centers</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">cv</span><span class="o">::</span><span class="n">SimpleBlobDetector</span><span class="o">::</span><span class="n">Params</span> <span class="n">bright_params</span><span class="p">;</span>
+        <span class="n">bright_params</span><span class="p">.</span><span class="n">filterByColor</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="n">bright_params</span><span class="p">.</span><span class="n">blobColor</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;</span> <span class="c1">// white circles in the calibration target</span>
+        <span class="n">bright_params</span><span class="p">.</span><span class="n">thresholdStep</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="n">bright_params</span><span class="p">.</span><span class="n">minArea</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">;</span>  <span class="c1">// Min/max area can be adjusted based on size of dots in image</span>
+        <span class="n">bright_params</span><span class="p">.</span><span class="n">maxArea</span> <span class="o">=</span> <span class="mf">1000.0</span><span class="p">;</span>
+        <span class="n">cv</span><span class="o">::</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">SimpleBlobDetector</span><span class="o">&gt;</span> <span class="n">blob_detector</span> <span class="o">=</span> <span class="n">cv</span><span class="o">::</span><span class="n">SimpleBlobDetector</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="n">bright_params</span><span class="p">);</span>
+
+        <span class="c1">// pattern_size(num_cols, num_rows)</span>
+        <span class="c1">//       num_cols: number of columns (number of circles in a row) of the calibration target viewed by the camera</span>
+        <span class="c1">//       num_rows: number of rows (number of circles in a column) of the calibration target viewed by the camera</span>
+        <span class="c1">// Specify according to the orientation of the calibration target</span>
+        <span class="n">cv</span><span class="o">::</span><span class="n">Size</span> <span class="n">pattern_size</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+
+        <span class="c1">// Find max value in input image</span>
+        <span class="kt">double</span> <span class="n">min_value</span><span class="p">,</span> <span class="n">max_value</span><span class="p">;</span>
+        <span class="n">cv</span><span class="o">::</span><span class="n">minMaxIdx</span><span class="p">(</span><span class="n">image_in</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">min_value</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">max_value</span><span class="p">);</span>
+
+        <span class="c1">// Scale image to 8-bit, using full 8-bit range</span>
+        <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">image_8bit</span><span class="p">;</span>
+        <span class="n">image_in</span><span class="p">.</span><span class="n">convertTo</span><span class="p">(</span><span class="n">image_8bit</span><span class="p">,</span> <span class="n">CV_8U</span><span class="p">,</span> <span class="mf">255.0</span> <span class="o">/</span> <span class="n">max_value</span><span class="p">);</span>
+
+        <span class="kt">bool</span> <span class="n">is_found</span> <span class="o">=</span> <span class="n">cv</span><span class="o">::</span><span class="n">findCirclesGrid</span><span class="p">(</span><span class="n">image_8bit</span><span class="p">,</span> <span class="n">pattern_size</span><span class="p">,</span> <span class="n">grid_centers</span><span class="p">,</span> <span class="n">cv</span><span class="o">::</span><span class="n">CALIB_CB_SYMMETRIC_GRID</span><span class="p">,</span> <span class="n">blob_detector</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// helper function</span>
+<span class="kt">bool</span> <span class="nf">findCalibrationPointsTRI</span><span class="p">(</span><span class="k">const</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&amp;</span> <span class="n">image_in_orig</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">Point2f</span><span class="o">&gt;&amp;</span> <span class="n">grid_centers</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">float</span> <span class="n">scaling</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+        <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">image_in</span> <span class="o">=</span> <span class="n">image_in_orig</span><span class="p">;</span>
+
+        <span class="cm">/*ArenaView*/</span>
+        <span class="n">cv</span><span class="o">::</span><span class="n">SimpleBlobDetector</span><span class="o">::</span><span class="n">Params</span> <span class="n">bright_params</span><span class="p">;</span>
+        <span class="n">bright_params</span><span class="p">.</span><span class="n">filterByColor</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="n">bright_params</span><span class="p">.</span><span class="n">blobColor</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;</span> <span class="c1">// white circles in the calibration target</span>
+        <span class="n">bright_params</span><span class="p">.</span><span class="n">filterByCircularity</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="n">bright_params</span><span class="p">.</span><span class="n">minCircularity</span> <span class="o">=</span> <span class="mf">0.8f</span><span class="p">;</span>
+
+        <span class="n">cv</span><span class="o">::</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">SimpleBlobDetector</span><span class="o">&gt;</span> <span class="n">blob_detector</span> <span class="o">=</span> <span class="n">cv</span><span class="o">::</span><span class="n">SimpleBlobDetector</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="n">bright_params</span><span class="p">);</span>
+
+        <span class="c1">// pattern_size(num_cols, num_rows)</span>
+        <span class="c1">//       num_cols: number of columns (number of circles in a row) of the calibration target viewed by the camera</span>
+        <span class="c1">//       num_rows: number of rows (number of circles in a column) of the calibration target viewed by the camera</span>
+        <span class="c1">// Specify according to the orientation of the calibration target</span>
+        <span class="n">cv</span><span class="o">::</span><span class="n">Size</span> <span class="n">pattern_size</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+
+        <span class="kt">bool</span> <span class="n">is_found</span> <span class="o">=</span> <span class="n">findCirclesGrid</span><span class="p">(</span><span class="n">image_in</span><span class="p">,</span> <span class="n">pattern_size</span><span class="p">,</span> <span class="n">grid_centers</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">blob_detector</span><span class="p">);</span>
+
+        <span class="kt">double</span> <span class="n">scaled_nrows</span> <span class="o">=</span> <span class="mf">2400.0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">is_found</span> <span class="o">&amp;&amp;</span> <span class="n">scaled_nrows</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">scaled_nrows</span> <span class="o">/=</span> <span class="mf">2.0</span><span class="p">;</span>
+                <span class="n">scaling</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span><span class="n">image_in_orig</span><span class="p">.</span><span class="n">rows</span> <span class="o">/</span> <span class="n">scaled_nrows</span><span class="p">);</span>
+                <span class="n">cv</span><span class="o">::</span><span class="n">resize</span><span class="p">(</span><span class="n">image_in_orig</span><span class="p">,</span> <span class="n">image_in</span><span class="p">,</span> <span class="n">cv</span><span class="o">::</span><span class="n">Size</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span><span class="n">image_in_orig</span><span class="p">.</span><span class="n">cols</span> <span class="o">/</span> <span class="n">scaling</span><span class="p">),</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span><span class="n">image_in_orig</span><span class="p">.</span><span class="n">rows</span> <span class="o">/</span> <span class="n">scaling</span><span class="p">)));</span>
+
+                <span class="n">is_found</span> <span class="o">=</span> <span class="n">findCirclesGrid</span><span class="p">(</span><span class="n">image_in</span><span class="p">,</span> <span class="n">pattern_size</span><span class="p">,</span> <span class="n">grid_centers</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">blob_detector</span><span class="p">);</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Found &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">grid_centers</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;circle centers.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Scale back the grid centers</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">grid_centers</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">grid_centers</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">x</span> <span class="o">=</span> <span class="n">grid_centers</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">x</span> <span class="o">*</span> <span class="n">scaling</span><span class="p">;</span>
+                <span class="n">grid_centers</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">y</span> <span class="o">=</span> <span class="n">grid_centers</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">y</span> <span class="o">*</span> <span class="n">scaling</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">is_found</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// =-=-=-=-=-=-=-=-=-</span>
+<span class="c1">// =-=- EXAMPLE -=-=-</span>
+<span class="c1">// =-=-=-=-=-=-=-=-=-</span>
+
+<span class="kt">void</span> <span class="nf">CalculateAndSaveOrientationValues</span><span class="p">(</span><span class="n">Arena</span><span class="o">::</span><span class="n">IDevice</span><span class="o">*</span> <span class="n">pDeviceTRI</span><span class="p">,</span> <span class="n">Arena</span><span class="o">::</span><span class="n">IDevice</span><span class="o">*</span> <span class="n">pDeviceHLT</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="c1">// get node values that will be changed in order to return their values at</span>
+        <span class="c1">// the end of the example</span>
+        <span class="n">GenICam</span><span class="o">::</span><span class="n">gcstring</span> <span class="n">pixelFormatInitialTRI</span> <span class="o">=</span> <span class="n">Arena</span><span class="o">::</span><span class="n">GetNodeValue</span><span class="o">&lt;</span><span class="n">GenICam</span><span class="o">::</span><span class="n">gcstring</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pDeviceTRI</span><span class="o">-&gt;</span><span class="n">GetNodeMap</span><span class="p">(),</span> <span class="s">&quot;PixelFormat&quot;</span><span class="p">);</span>
+        <span class="n">GenICam</span><span class="o">::</span><span class="n">gcstring</span> <span class="n">pixelFormatInitialHLT</span> <span class="o">=</span> <span class="n">Arena</span><span class="o">::</span><span class="n">GetNodeValue</span><span class="o">&lt;</span><span class="n">GenICam</span><span class="o">::</span><span class="n">gcstring</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pDeviceHLT</span><span class="o">-&gt;</span><span class="n">GetNodeMap</span><span class="p">(),</span> <span class="s">&quot;PixelFormat&quot;</span><span class="p">);</span>
+
+        <span class="c1">// Read in camera matrix and distance coefficients</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">TAB1</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Read camera matrix and distance coefficients from file &#39;&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">FILE_NAME_IN</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;&#39;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+        <span class="n">cv</span><span class="o">::</span><span class="n">FileStorage</span> <span class="n">fs</span><span class="p">(</span><span class="n">FILE_NAME_IN</span><span class="p">,</span> <span class="n">cv</span><span class="o">::</span><span class="n">FileStorage</span><span class="o">::</span><span class="n">READ</span><span class="p">);</span>
+        <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">cameraMatrix</span><span class="p">;</span>
+        <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">distCoeffs</span><span class="p">;</span>
+
+        <span class="n">fs</span><span class="p">[</span><span class="s">&quot;cameraMatrix&quot;</span><span class="p">]</span> <span class="o">&gt;&gt;</span> <span class="n">cameraMatrix</span><span class="p">;</span>
+        <span class="n">fs</span><span class="p">[</span><span class="s">&quot;distCoeffs&quot;</span><span class="p">]</span> <span class="o">&gt;&gt;</span> <span class="n">distCoeffs</span><span class="p">;</span>
+
+        <span class="n">fs</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+
+        <span class="c1">// Get an image from Helios 2</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">TAB1</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Get and prepare HLT image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+        <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">imageMatrixHLTIntensity</span><span class="p">;</span>
+        <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">imageMatrixHLTXYZ</span><span class="p">;</span>
+
+        <span class="n">getImageHLT</span><span class="p">(</span><span class="n">pDeviceHLT</span><span class="p">,</span> <span class="n">imageMatrixHLTIntensity</span><span class="p">,</span> <span class="n">imageMatrixHLTXYZ</span><span class="p">);</span>
+
+        <span class="c1">// Get an image from Triton</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">TAB1</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Get and prepare TRI image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+        <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">imageMatrixTRI</span><span class="p">;</span>
+
+        <span class="n">getImageTRI</span><span class="p">(</span><span class="n">pDeviceTRI</span><span class="p">,</span> <span class="n">imageMatrixTRI</span><span class="p">);</span>
+
+        <span class="c1">// Calculate orientation values</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">TAB1</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Calculate orientation values</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">Point2f</span><span class="o">&gt;</span> <span class="n">gridCentersHLT</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">Point2f</span><span class="o">&gt;</span> <span class="n">gridCentersTRI</span><span class="p">;</span>
+
+        <span class="c1">// find HLT calibration points using HLT intensity image</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">TAB2</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Find points in HLT image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+        <span class="n">findCalibrationPointsHLT</span><span class="p">(</span><span class="n">imageMatrixHLTIntensity</span><span class="p">,</span> <span class="n">gridCentersHLT</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">gridCentersHLT</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">20</span><span class="p">)</span>
+                <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">logic_error</span><span class="p">(</span><span class="s">&quot;Unable to find points in HLT intensity image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+        <span class="c1">// find TRI calibration points</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">TAB2</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Find points in TRI image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+        <span class="n">findCalibrationPointsTRI</span><span class="p">(</span><span class="n">imageMatrixTRI</span><span class="p">,</span> <span class="n">gridCentersTRI</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">gridCentersTRI</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">20</span><span class="p">)</span>
+                <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">logic_error</span><span class="p">(</span><span class="s">&quot;Unable to find points in TRI image</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+        <span class="c1">// prepare for PnP</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">TAB2</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Prepare for PnP</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">Point3f</span><span class="o">&gt;</span> <span class="n">targetPoints3Dmm</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">Point2f</span><span class="o">&gt;</span> <span class="n">targetPoints3DPixels</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">Point2f</span><span class="o">&gt;</span> <span class="n">targetPoints2DPixels</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">gridCentersTRI</span><span class="p">.</span><span class="n">size</span><span class="p">());</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">c1</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="n">round</span><span class="p">(</span><span class="n">gridCentersHLT</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">x</span><span class="p">);</span>
+                <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">r1</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="n">round</span><span class="p">(</span><span class="n">gridCentersHLT</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">y</span><span class="p">);</span>
+                <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">c2</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="n">round</span><span class="p">(</span><span class="n">gridCentersTRI</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">x</span><span class="p">);</span>
+                <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">r2</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="n">round</span><span class="p">(</span><span class="n">gridCentersTRI</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">y</span><span class="p">);</span>
+
+                <span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="n">imageMatrixHLTXYZ</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">Vec3f</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">c1</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+                <span class="kt">float</span> <span class="n">y</span> <span class="o">=</span> <span class="n">imageMatrixHLTXYZ</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">Vec3f</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">c1</span><span class="p">)[</span><span class="mi">1</span><span class="p">];</span>
+                <span class="kt">float</span> <span class="n">z</span> <span class="o">=</span> <span class="n">imageMatrixHLTXYZ</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">Vec3f</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">c1</span><span class="p">)[</span><span class="mi">2</span><span class="p">];</span>
+
+                <span class="n">cv</span><span class="o">::</span><span class="n">Point3f</span> <span class="n">pt</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">TAB3</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Point &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+                <span class="n">targetPoints3Dmm</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">pt</span><span class="p">);</span>
+                <span class="n">targetPoints3DPixels</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">gridCentersHLT</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+                <span class="n">targetPoints2DPixels</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">gridCentersTRI</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+
+        <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">rotationVector</span><span class="p">;</span>
+        <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">translationVector</span><span class="p">;</span>
+
+        <span class="kt">bool</span> <span class="n">orientationSucceeded</span> <span class="o">=</span> <span class="n">cv</span><span class="o">::</span><span class="n">solvePnP</span><span class="p">(</span><span class="n">targetPoints3Dmm</span><span class="p">,</span>
+                <span class="n">targetPoints2DPixels</span><span class="p">,</span>
+                <span class="n">cameraMatrix</span><span class="p">,</span>
+                <span class="n">distCoeffs</span><span class="p">,</span>
+                <span class="n">rotationVector</span><span class="p">,</span>
+                <span class="n">translationVector</span><span class="p">);</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">TAB2</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Orientation &quot;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">orientationSucceeded</span> <span class="o">?</span> <span class="s">&quot;succeeded&quot;</span> <span class="o">:</span> <span class="s">&quot;failed&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+        <span class="c1">// Save orientation information</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">TAB1</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Save camera matrix, distance coefficients, and rotation and translation vectors to file &#39;&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">FILE_NAME_OUT</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;&#39;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+        <span class="n">cv</span><span class="o">::</span><span class="n">FileStorage</span> <span class="n">fs2</span><span class="p">(</span><span class="n">FILE_NAME_OUT</span><span class="p">,</span> <span class="n">cv</span><span class="o">::</span><span class="n">FileStorage</span><span class="o">::</span><span class="n">WRITE</span><span class="p">);</span>
+
+        <span class="n">fs2</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;cameraMatrix&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">cameraMatrix</span><span class="p">;</span>
+        <span class="n">fs2</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;distCoeffs&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">distCoeffs</span><span class="p">;</span>
+        <span class="n">fs2</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;rotationVector&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">rotationVector</span><span class="p">;</span>
+        <span class="n">fs2</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;translationVector&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">translationVector</span><span class="p">;</span>
+
+        <span class="n">fs2</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+
+        <span class="c1">// return nodes to their initial values</span>
+        <span class="n">Arena</span><span class="o">::</span><span class="n">SetNodeValue</span><span class="o">&lt;</span><span class="n">GenICam</span><span class="o">::</span><span class="n">gcstring</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pDeviceTRI</span><span class="o">-&gt;</span><span class="n">GetNodeMap</span><span class="p">(),</span> <span class="s">&quot;PixelFormat&quot;</span><span class="p">,</span> <span class="n">pixelFormatInitialTRI</span><span class="p">);</span>
+        <span class="n">Arena</span><span class="o">::</span><span class="n">SetNodeValue</span><span class="o">&lt;</span><span class="n">GenICam</span><span class="o">::</span><span class="n">gcstring</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pDeviceHLT</span><span class="o">-&gt;</span><span class="n">GetNodeMap</span><span class="p">(),</span> <span class="s">&quot;PixelFormat&quot;</span><span class="p">,</span> <span class="n">pixelFormatInitialHLT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// =-=-=-=-=-=-=-=-=-</span>
+<span class="c1">// =- PREPARATION -=-</span>
+<span class="c1">// =- &amp; CLEAN UP =-=-</span>
+<span class="c1">// =-=-=-=-=-=-=-=-=-</span>
+
+<span class="kt">bool</span> <span class="nf">isApplicableDeviceTriton</span><span class="p">(</span><span class="n">Arena</span><span class="o">::</span><span class="n">DeviceInfo</span> <span class="n">deviceInfo</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="c1">// color triton camera needed</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">deviceInfo</span><span class="p">.</span><span class="n">ModelName</span><span class="p">().</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;TRI&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="n">GenICam</span><span class="o">::</span><span class="n">gcstring</span><span class="o">::</span><span class="n">npos</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">deviceInfo</span><span class="p">.</span><span class="n">ModelName</span><span class="p">().</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;-C&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="n">GenICam</span><span class="o">::</span><span class="n">gcstring</span><span class="o">::</span><span class="n">npos</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="nf">isApplicableDeviceHelios2</span><span class="p">(</span><span class="n">Arena</span><span class="o">::</span><span class="n">DeviceInfo</span> <span class="n">deviceInfo</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">deviceInfo</span><span class="p">.</span><span class="n">ModelName</span><span class="p">().</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;HLT&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="n">GenICam</span><span class="o">::</span><span class="n">gcstring</span><span class="o">::</span><span class="n">npos</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">deviceInfo</span><span class="p">.</span><span class="n">ModelName</span><span class="p">().</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;HTP&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="n">GenICam</span><span class="o">::</span><span class="n">gcstring</span><span class="o">::</span><span class="n">npos</span><span class="p">)</span> \
+                <span class="o">||</span> <span class="p">(</span><span class="n">deviceInfo</span><span class="p">.</span><span class="n">ModelName</span><span class="p">().</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;HTW&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="n">GenICam</span><span class="o">::</span><span class="n">gcstring</span><span class="o">::</span><span class="n">npos</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+        <span class="c1">// flag to track when an exception has been thrown</span>
+        <span class="kt">bool</span> <span class="n">exceptionThrown</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Cpp_HLTRGB_2_Orientation</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+        <span class="k">try</span>
+        <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">ifile</span><span class="p">;</span>
+                <span class="n">ifile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">FILE_NAME_IN</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">ifile</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;File &#39;&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">FILE_NAME_IN</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;&#39; not found</span><span class="se">\n</span><span class="s">Please run example &#39;Cpp_HLTRGB_1_Calibration&#39; prior to this one</span><span class="se">\n</span><span class="s">Press enter to complete</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+                        <span class="n">std</span><span class="o">::</span><span class="n">getchar</span><span class="p">();</span>
+                        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="p">}</span>
+
+                <span class="c1">// prepare example</span>
+                <span class="n">Arena</span><span class="o">::</span><span class="n">ISystem</span><span class="o">*</span> <span class="n">pSystem</span> <span class="o">=</span> <span class="n">Arena</span><span class="o">::</span><span class="n">OpenSystem</span><span class="p">();</span>
+                <span class="n">pSystem</span><span class="o">-&gt;</span><span class="n">UpdateDevices</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Arena</span><span class="o">::</span><span class="n">DeviceInfo</span><span class="o">&gt;</span> <span class="n">deviceInfos</span> <span class="o">=</span> <span class="n">pSystem</span><span class="o">-&gt;</span><span class="n">GetDevices</span><span class="p">();</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">deviceInfos</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">No camera connected</span><span class="se">\n</span><span class="s">Press enter to complete</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+                        <span class="n">std</span><span class="o">::</span><span class="n">getchar</span><span class="p">();</span>
+                        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="p">}</span>
+
+                <span class="n">Arena</span><span class="o">::</span><span class="n">IDevice</span><span class="o">*</span> <span class="n">pDeviceTRI</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+                <span class="n">Arena</span><span class="o">::</span><span class="n">IDevice</span><span class="o">*</span> <span class="n">pDeviceHLT</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+                <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">deviceInfo</span> <span class="p">:</span> <span class="n">deviceInfos</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">pDeviceTRI</span> <span class="o">&amp;&amp;</span> <span class="n">isApplicableDeviceTriton</span><span class="p">(</span><span class="n">deviceInfo</span><span class="p">))</span>
+                        <span class="p">{</span>
+                                <span class="n">pDeviceTRI</span> <span class="o">=</span> <span class="n">pSystem</span><span class="o">-&gt;</span><span class="n">CreateDevice</span><span class="p">(</span><span class="n">deviceInfo</span><span class="p">);</span>
+                        <span class="p">}</span>
+                        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">isApplicableDeviceTriton</span><span class="p">(</span><span class="n">deviceInfo</span><span class="p">))</span>
+                        <span class="p">{</span>
+                                <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">logic_error</span><span class="p">(</span><span class="s">&quot;too many Triton devices connected&quot;</span><span class="p">);</span>
+                        <span class="p">}</span>
+                        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">pDeviceHLT</span> <span class="o">&amp;&amp;</span> <span class="n">isApplicableDeviceHelios2</span><span class="p">(</span><span class="n">deviceInfo</span><span class="p">))</span>
+                        <span class="p">{</span>
+                                <span class="n">pDeviceHLT</span> <span class="o">=</span> <span class="n">pSystem</span><span class="o">-&gt;</span><span class="n">CreateDevice</span><span class="p">(</span><span class="n">deviceInfo</span><span class="p">);</span>
+                        <span class="p">}</span>
+                        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">isApplicableDeviceHelios2</span><span class="p">(</span><span class="n">deviceInfo</span><span class="p">))</span>
+                        <span class="p">{</span>
+                                <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">logic_error</span><span class="p">(</span><span class="s">&quot;too many Helios 2 devices connected&quot;</span><span class="p">);</span>
+                        <span class="p">}</span>
+                <span class="p">}</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">pDeviceTRI</span><span class="p">)</span>
+                        <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">logic_error</span><span class="p">(</span><span class="s">&quot;No applicable Triton devices&quot;</span><span class="p">);</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">pDeviceHLT</span><span class="p">)</span>
+                        <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">logic_error</span><span class="p">(</span><span class="s">&quot;No applicable Helios 2 devices&quot;</span><span class="p">);</span>
+
+                <span class="c1">// run example</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">pDeviceTRI</span> <span class="o">&amp;&amp;</span> <span class="n">pDeviceHLT</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Commence example</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">;</span>
+                        <span class="n">CalculateAndSaveOrientationValues</span><span class="p">(</span><span class="n">pDeviceTRI</span><span class="p">,</span> <span class="n">pDeviceHLT</span><span class="p">);</span>
+                        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Example complete</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+                <span class="p">}</span>
+
+                <span class="c1">// clean up example</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">pDeviceTRI</span><span class="p">)</span>
+                        <span class="n">pSystem</span><span class="o">-&gt;</span><span class="n">DestroyDevice</span><span class="p">(</span><span class="n">pDeviceTRI</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">pDeviceHLT</span><span class="p">)</span>
+                        <span class="n">pSystem</span><span class="o">-&gt;</span><span class="n">DestroyDevice</span><span class="p">(</span><span class="n">pDeviceHLT</span><span class="p">);</span>
+                <span class="n">Arena</span><span class="o">::</span><span class="n">CloseSystem</span><span class="p">(</span><span class="n">pSystem</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">catch</span> <span class="p">(</span><span class="n">GenICam</span><span class="o">::</span><span class="n">GenericException</span><span class="o">&amp;</span> <span class="n">ge</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">GenICam exception thrown: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ge</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+                <span class="n">exceptionThrown</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">catch</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="o">&amp;</span> <span class="n">ex</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Standard exception thrown: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ex</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+                <span class="n">exceptionThrown</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">catch</span> <span class="p">(...)</span>
+        <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Unexpected exception thrown</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+                <span class="n">exceptionThrown</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Press enter to complete</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">getchar</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">exceptionThrown</span><span class="p">)</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="k">else</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cpp_examples_hltrgb_3_overlay.html" class="btn btn-neutral float-right" title="HLTRGB, Step 3: Overlay" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cpp_examples_hltrgb_1_calibration.html" class="btn btn-neutral" title="HLTRGB, Step 1: Calibration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Lucid Vision Labs, Inc.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.59.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
