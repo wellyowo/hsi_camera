@@ -54,7 +54,7 @@ docker run -it \
     -v "/etc/localtime:/etc/localtime:ro" \
     -v "/dev:/dev" \
     -v "/var/run/docker.sock:/var/run/docker.sock" \
-    -v "/home/$USER/hsi_camera:/home/arghsi/lucid_HSI_camera"\
+    -v "/home/$USER/hsi_camera:/home/arghsi/hsi_camera"\
     --user "root:root" \
     --name arghsi \
     --network host \
