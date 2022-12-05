@@ -36,19 +36,19 @@ with jupyter-notebook(after you finish 3.)
 ```bash
 (Docker)$source colab_jupyter.sh
 ```
-Then go to: http://127.0.0.1:8888/?token=assistive
-if need password or token : assistive
-*warning: using notebook will slow down the scanning speed, run as script will be faster
+-Then go to: http://127.0.0.1:8888/?token=assistive
+-if need password or token : assistive
+-*warning: using notebook will slow down the scanning speed, run as script will be faster
   
 ## 5.run notebook to setup
 (In jupyter notebook UI)
-(1)go folder hsi_camera
-(2)run notebook 01_gdown, it will download the .json and .pkl file.
-(3)run notebook 03_hsi_camera_scan start to collect HSI data
+-(1)go folder hsi_camera
+-(2)run notebook 01_gdown, it will download the .json and .pkl file.
+-(3)run notebook 03_hsi_camera_scan start to collect HSI data
 
 ## 6. unfinished part
 1.For 6SV model(for using level6 setting)
-    extract 6SV-1.1.tar on machine
+    -extract 6SV-1.1.tar on machine
     (In docker)you need compile the code on your machine 
     $cd /home/arghsi/hsi_camera/6SV-1.1/6SV1.1
     $make
